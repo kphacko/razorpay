@@ -3,7 +3,7 @@
 require('config.php');
 
 session_start();
-
+include_once('connect.php');
 require('razorpay-php/Razorpay.php');
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors\SignatureVerificationError;
@@ -11,6 +11,7 @@ use Razorpay\Api\Errors\SignatureVerificationError;
 $success = true;
 
 $error = "Payment Failed";
+$id=$_POST['shopping_order_id'];
 
 if (empty($_POST['razorpay_payment_id']) === false)
 {
@@ -40,11 +41,19 @@ if ($success === true)
 {
     $html = "<p>Your payment was successful</p>
              <p>Payment ID: {$_POST['razorpay_payment_id']}</p>";
+             $sql1="UPDATE `member` SET `status`= 1,`payment_id` = '".$_POST['razorpay_payment_id']."' WHERE id=".$id;
+                       mysqli_query($conn, $sql1) or die(mysqli_error($conn));
+                       header("Location:index.php?stat=ps");
+                       exit();
 }
 else
 {
     $html = "<p>Your payment failed</p>
              <p>{$error}</p>";
+             $sql1="UPDATE `member` SET `status`= 2,`payment_id` = '".$error."' WHERE id=".$id;
+                       mysqli_query($conn, $sql1) or die(mysqli_error($conn));
+                       header("Location:index.php?stat=pf");
+                       exit();
 }
 
-echo $html;
+//echo $html;
