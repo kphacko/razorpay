@@ -1,4 +1,11 @@
-
+<?
+session_start();
+if(!strcmp("admin",$_SESSION['privilege'])==0)
+{
+  header("Location:index.php");
+  exit();
+}
+?>
 
 <!DOCTYPE html>
 <html>

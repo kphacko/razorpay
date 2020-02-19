@@ -22,6 +22,8 @@ if (isset($_POST['submit']))
         exit();
 
       }
+      $sql="DELETE FROM `member` WHERE STATUS=0";
+      mysqli_query($conn, $sql) or die(mysqli_error($conn));
       $sql1="INSERT INTO member (`name`, `email`,`phone`,`address`, `pincode`)
                 VALUES ('$name','$email',$phone,'$address','$pincode');";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));

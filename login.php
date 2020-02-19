@@ -6,15 +6,28 @@
   <title>Log In</title>
 </head>
 <body>
-  
-        <div class="card" style="width: 18rem;">
+  <div class="container">
+        <div class="card">
   <img src="img/elgaar.png" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h3 class="card-title text-center">Log In</h3>
+    <form action="login.inc.php" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input name="email"type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input name="pass"type="Password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="text-center">
+  <button name="submit" type="submit" class="btn btn-primary">Login</button>
+</div>
+</form>
+   
   </div>
 </div>
+</div>  
    
   
 
