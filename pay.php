@@ -28,14 +28,14 @@ if (isset($_POST['submit']))
         $state = mysqli_real_escape_string($conn, $_POST['state']);
         // $photo = mysqli_real_escape_string($conn, $_POST['form_fields[field_19]']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $pro = mysqli_real_escape_string($conn, $_POST['photo']);
+        // $pro = mysqli_real_escape_string($conn, $_POST['photo']);
       }
       else {
         header("Location:index.php?stat=f");
         exit();
 
       }
-      $profileimage = $_FILES['form_fields[field_19]']['form_fields[field_27]'];
+      $profileimage = $_FILES['photo']['first_name'];
       $profiletarget = "img/profiles/".basename($profileimage);
 
       $sql="DELETE FROM `member` WHERE STATUS=0";
