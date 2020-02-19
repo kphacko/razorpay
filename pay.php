@@ -1,9 +1,10 @@
+<link rel="stylesheet"  href="css/style.css">
 <?php
 
 require('config.php');
 require('razorpay-php/Razorpay.php');
 include_once('connect.php');
-include 'header.php';
+
 session_start();
 
 // Create the Razorpay Order
