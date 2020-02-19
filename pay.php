@@ -1,5 +1,7 @@
 <link rel="stylesheet"  href="css/style.css">
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
 
 require('config.php');
 require('razorpay-php/Razorpay.php');
@@ -91,11 +93,11 @@ $checkout = 'automatic';
 $data = [
     "key"               => $keyId,
     "amount"            => $amount,
-    "name"              => "Karan Patil",
+    "name"              => "Elgaar Union",
     "description"       => "Union fees",
-    "image"             => "https://s29.postimg.org/r6dj1g85z/daft_punk.jpg",
+    "image"             => "https://elgaar.com/wp-content/uploads/2019/07/cropped-Capture223.png",
     "prefill"           => [
-    "name"              => $name,
+    "name"              => $fname.' '.$lname,
     "email"             => $email,
     "contact"           => $phone,
     ],

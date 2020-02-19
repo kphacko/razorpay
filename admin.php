@@ -3,7 +3,7 @@ include_once 'connect.php';
 include_once 'header.php';
 
 
-$sql="SELECT * from member";
+$sql="SELECT * from member where status=1";
 $result= mysqli_query($conn,$sql);
 $check1=mysqli_num_rows($result);
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
