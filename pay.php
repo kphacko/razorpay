@@ -11,24 +11,24 @@ session_start();
 if (isset($_POST['submit']))
     {
 
-        $fname = mysqli_real_escape_string($conn, $_POST['form_fields[field_27]']);
-        $mname = mysqli_real_escape_string($conn, $_POST['form_fields[field_3]']);
-        $lname = mysqli_real_escape_string($conn, $_POST['form_fields[field_2]']);
-        $address = mysqli_real_escape_string($conn, $_POST['form_fields[field_17]']);
-        $dob = mysqli_real_escape_string($conn, $_POST['form_fields[field_9]']);
-        $phone = mysqli_real_escape_string($conn, $_POST['form_fields[field_10]']);
-        $pincode = mysqli_real_escape_string($conn, $_POST['form_fields[field_18]']);
-        $gen = mysqli_real_escape_string($conn, $_POST['form_fields[field_16]']);
-        $marital = mysqli_real_escape_string($conn, $_POST['form_fields[field_30]']);
-        $aadhar = mysqli_real_escape_string($conn, $_POST['form_fields[field_15]']);
-        $blood = mysqli_real_escape_string($conn, $_POST['form_fields[field_1]']);
-        $place = mysqli_real_escape_string($conn, $_POST['form_fields[field_14]']);
-        $date = mysqli_real_escape_string($conn, $_POST['form_fields[field_25]']);
-        $district = mysqli_real_escape_string($conn, $_POST['form_fields[district]']);
-        $state = mysqli_real_escape_string($conn, $_POST['form_fields[field_4]']);
+        $fname = mysqli_real_escape_string($conn, $_POST['first_name']);
+        $mname = mysqli_real_escape_string($conn, $_POST['middle_name']);
+        $lname = mysqli_real_escape_string($conn, $_POST['last_name']);
+        $address = mysqli_real_escape_string($conn, $_POST['address']);
+        $dob = mysqli_real_escape_string($conn, $_POST['birth_date']);
+        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+        $pincode = mysqli_real_escape_string($conn, $_POST['pincode']);
+        $gen = mysqli_real_escape_string($conn, $_POST['gender']);
+        // $marital = mysqli_real_escape_string($conn, $_POST['']);
+        $aadhar = mysqli_real_escape_string($conn, $_POST['aadhar']);
+        // $blood = mysqli_real_escape_string($conn, $_POST['']);
+        // $place = mysqli_real_escape_string($conn, $_POST['']);
+        // $date = mysqli_real_escape_string($conn, $_POST['']);
+        $district = mysqli_real_escape_string($conn, $_POST['district']);
+        $state = mysqli_real_escape_string($conn, $_POST['state']);
         // $photo = mysqli_real_escape_string($conn, $_POST['form_fields[field_19]']);
-        $email = mysqli_real_escape_string($conn, $_POST['form_fields[field_78]']);
-        $pro = mysqli_real_escape_string($conn, $_POST['form_fields[field_78]']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $pro = mysqli_real_escape_string($conn, $_POST['photo']);
       }
       else {
         header("Location:index.php?stat=f");
@@ -39,8 +39,12 @@ if (isset($_POST['submit']))
       $profiletarget = "img/profiles/".basename($profileimage);
 
       $sql="DELETE FROM `member` WHERE STATUS=0";
+      // mysqli_query($conn, $sql) or die(mysqli_error($conn));
+      // $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `martial`, `phone`, `email`, `address`, `pincode`, `aadhar`, `blood`, `place`, `date`, `district`, `state`, `status`,'profile') VALUES ('$fname','$mname','$lname','$dob','$gen','$martial','$phone','$email','$address','$pincode','$aadhar','$blood','$place','$date','$district','$state',0,'$pro');";
+      //           mysqli_query($conn, $sql1) or die(mysqli_error($conn));
+      //           $id = $conn->insert_id;
       mysqli_query($conn, $sql) or die(mysqli_error($conn));
-      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `martial`, `phone`, `email`, `address`, `pincode`, `aadhar`, `blood`, `place`, `date`, `district`, `state`, `status`,'profile') VALUES ('$fname','$mname','$lname','$dob','$gen','$martial','$phone','$email','$address','$pincode','$aadhar','$blood','$place','$date','$district','$state',0,'$pro');";
+      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,'profile') VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$pro');";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                 $id = $conn->insert_id;
                 // echo $id;
