@@ -35,8 +35,8 @@ if (isset($_POST['submit']))
         exit();
 
       }
-      $profileimage = $_FILES['photo']['name'];
-      $profiletarget = "img/profiles/".basename($profileimage);
+      // $profileimage = $_FILES['photo']['name'];
+      // $profiletarget = "img/profiles/".basename($profileimage);
 
       $sql="DELETE FROM `member` WHERE STATUS=0";
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -44,7 +44,7 @@ if (isset($_POST['submit']))
       //           mysqli_query($conn, $sql1) or die(mysqli_error($conn));
       //           $id = $conn->insert_id;
       mysqli_query($conn, $sql) or die(mysqli_error($conn));
-      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,'profile') VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$profileimage');";
+      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0);";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                 $id = $conn->insert_id;
                 // echo $id;
