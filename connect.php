@@ -1,9 +1,9 @@
 <?php
 
 $dbServername= "localhost";
-$dbUsername= "root";
-$dbPassword= "";
-$dbName= "payment";
+$dbUsername= strtolower('ELGAARCO_DB1');
+$dbPassword= "KDEKI04V46";
+$dbName= strtolower('ELGAARCO_DB1');
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die("Connection failed");
 
