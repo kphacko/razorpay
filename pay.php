@@ -11,21 +11,36 @@ session_start();
 if (isset($_POST['submit']))
     {
 
-        $name = mysqli_real_escape_string($conn, $_POST['name']);
-        $address = mysqli_real_escape_string($conn, $_POST['addr']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-        $pincode = mysqli_real_escape_string($conn, $_POST['pin']);
+        $fname = mysqli_real_escape_string($conn, $_POST['form_fields[field_27]']);
+        $mname = mysqli_real_escape_string($conn, $_POST['form_fields[field_3]']);
+        $lname = mysqli_real_escape_string($conn, $_POST['form_fields[field_2]']);
+        $address = mysqli_real_escape_string($conn, $_POST['form_fields[field_17]']);
+        $dob = mysqli_real_escape_string($conn, $_POST['form_fields[field_9]']);
+        $phone = mysqli_real_escape_string($conn, $_POST['form_fields[field_10]']);
+        $pincode = mysqli_real_escape_string($conn, $_POST['form_fields[field_18]']);
+        $gen = mysqli_real_escape_string($conn, $_POST['form_fields[field_16]']);
+        $marital = mysqli_real_escape_string($conn, $_POST['form_fields[field_30]']);
+        $aadhar = mysqli_real_escape_string($conn, $_POST['form_fields[field_15]']);
+        $blood = mysqli_real_escape_string($conn, $_POST['form_fields[field_1]']);
+        $place = mysqli_real_escape_string($conn, $_POST['form_fields[field_14]']);
+        $date = mysqli_real_escape_string($conn, $_POST['form_fields[field_25]']);
+        $district = mysqli_real_escape_string($conn, $_POST['stt']);
+        $state = mysqli_real_escape_string($conn, $_POST['form_fields[field_4]']);
+        // $photo = mysqli_real_escape_string($conn, $_POST['form_fields[field_19]']);
+        $email = mysqli_real_escape_string($conn, $_POST['form_fields[field_78]']);
+        $pro = mysqli_real_escape_string($conn, $_POST['form_fields[field_78]']);
       }
       else {
         header("Location:index.php?stat=f");
         exit();
 
       }
+      $profileimage = $_FILES['form_fields[field_19]']['form_fields[field_27]'];
+      $profiletarget = "img/profiles/".basename($profileimage);
+
       $sql="DELETE FROM `member` WHERE STATUS=0";
       mysqli_query($conn, $sql) or die(mysqli_error($conn));
-      $sql1="INSERT INTO member (`name`, `email`,`phone`,`address`, `pincode`)
-                VALUES ('$name','$email',$phone,'$address','$pincode');";
+      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `martial`, `phone`, `email`, `address`, `pincode`, `aadhar`, `blood`, `place`, `date`, `district`, `state`, `status`,'profile') VALUES ('$fname','$mname','$lname','$dob','$gen','$martial','$phone','$email','$address','$pincode','$aadhar','$blood','$place','$date','$district','$state',0,'$pro');";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                 $id = $conn->insert_id;
                 // echo $id;

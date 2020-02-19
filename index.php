@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8">
+    <script src="cities.js"></script>
     <title>Personal Details</title>
   </head>
   <body>
@@ -11,38 +12,60 @@
 </nav>
     <div class="container" style="margin-top:20px;" >
     <form action="pay.php" method="POST">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Full Name</label>
-          <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Email</label>
-          <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">phone</label>
-          <input name="phone" type="number" class="form-control" id="" placeholder="Phone number" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputAddress">Address</label>
-        <input name="addr" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputCity">City</label>
-          <input name="city" type="text" class="form-control" id="inputCity" required>
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputZip">Pincode</label>
-          <input name="pin" type="text" class="form-control" id="inputZip" required>
-        </div>
-      </div>
+      <div class="elementor-form-fields-wrapper elementor-labels-above">
+                <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_27 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_27" class="elementor-field-label">First Name :</label><input size="1" type="text" name="form_fields[field_27]" id="form-field-field_27" class="elementor-field elementor-size-md  elementor-field-textual" required="required" aria-required="true">       </div>
+                <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_3 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_3" class="elementor-field-label">Middle Name :</label><input size="1" type="text" name="form_fields[field_3]" id="form-field-field_3" class="elementor-field elementor-size-md  elementor-field-textual" required="required" aria-required="true">       </div>
+                <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_2 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_2" class="elementor-field-label">Last Name :</label><input size="1" type="text" name="form_fields[field_2]" id="form-field-field_2" class="elementor-field elementor-size-md  elementor-field-textual" required="required" aria-required="true">       </div>
 
-      <button name="submit" type="submit" class="btn btn-primary">Proced to pay</button>
+          <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_2 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_78" class="elementor-field-label">Email</label><input size="1" type="email" name="form_fields[field_78]" id="form-field-field_78" class="elementor-field elementor-size-md  elementor-field-textual" required="required" aria-required="true">       </div>
+                <div class="elementor-field-type-date elementor-field-group elementor-column elementor-field-group-field_9 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_9" class="elementor-field-label">Date Of Birth :</label><input type="date" name="form_fields[field_9]" id="form-field-field_9" class="elementor-field elementor-size-md  elementor-field-textual elementor-date-field elementor-use-native" required="required" aria-required="true" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">       </div>
+                <div class="elementor-field-type-upload elementor-field-group elementor-column elementor-field-group-field_19 elementor-col-25 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_19" class="elementor-field-label">Photograph :</label><input type="file" name="form_fields[field_19]" id="form-field-field_19" class="elementor-field elementor-size-md  elementor-upload-field" required="required" aria-required="true" data-maxsize="30" data-maxsize-message="This file exceeds the maximum allowed size.">        </div>
+                
+                <div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_17 elementor-col-60 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_17" class="elementor-field-label">Residential Address :</label><textarea class="elementor-field-textual elementor-field  elementor-size-md" name="form_fields[field_17]" id="form-field-field_17" rows="4" required="required" aria-required="true"></textarea>        </div>
+                <div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_4 elementor-col-25 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_4" class="elementor-field-label">Select state & district</label>   <div class="elementor-field elementor-select-wrapper ">
+      <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+<select id ="state" class="form-control" required></select>
+<script language="javascript">print_state("sts");</script>
+    </div>
+            </div>
+               
+                <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_18 elementor-col-40 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_18" class="elementor-field-label">Pin Code</label><input size="1" type="text" name="form_fields[field_18]" id="form-field-field_18" class="elementor-field elementor-size-md  elementor-field-textual" required="required" aria-required="true">       </div>
+                <div class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_10 elementor-col-25 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_10" class="elementor-field-label">Mobile No :</label><input type="number" name="form_fields[field_10]" id="form-field-field_10" class="elementor-field elementor-size-md  elementor-field-textual" required="required" aria-required="true" min="" max="">       </div>
+                <div class="elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-field_16 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_16" class="elementor-field-label">Gender</label><div class="elementor-field-subgroup  "><span class="elementor-field-option"><input type="radio" value="Male" id="form-field-field_16-0" name="form_fields[field_16]" required="required" aria-required="true"> <label for="form-field-field_16-0">Male</label></span><span class="elementor-field-option"><input type="radio" value="Female" id="form-field-field_16-1" name="form_fields[field_16]" required="required" aria-required="true"> <label for="form-field-field_16-1">Female</label></span></div>       </div>
+                <div class="elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-field_30 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_30" class="elementor-field-label">Marital Status</label><div class="elementor-field-subgroup  "><span class="elementor-field-option"><input type="radio" value="Unmarried " id="form-field-field_30-0" name="form_fields[field_30]" required="required" aria-required="true"> <label for="form-field-field_30-0">Unmarried </label></span><span class="elementor-field-option"><input type="radio" value="Married " id="form-field-field_30-1" name="form_fields[field_30]" required="required" aria-required="true"> <label for="form-field-field_30-1">Married </label></span><span class="elementor-field-option"><input type="radio" value="Divorced " id="form-field-field_30-2" name="form_fields[field_30]" required="required" aria-required="true"> <label for="form-field-field_30-2">Divorced </label></span></div>       </div>
+                <div class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_15 elementor-col-60 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_15" class="elementor-field-label">Aadhar Card </label><input type="number" name="form_fields[field_15]" id="form-field-field_15" class="elementor-field elementor-size-md  elementor-field-textual" required="required" aria-required="true" min="" max="">        </div>
+                <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_1 elementor-col-33 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_1" class="elementor-field-label">Blood Group</label><input size="1" type="text" name="form_fields[field_1]" id="form-field-field_1" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="B+" required="required" aria-required="true">        </div>
+                <div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_14 elementor-col-20 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_14" class="elementor-field-label">Place:</label><input size="1" type="text" name="form_fields[field_14]" id="form-field-field_14" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Mumbai" required="required" aria-required="true">        </div>
+                <div class="elementor-field-type-date elementor-field-group elementor-column elementor-field-group-field_25 elementor-col-20 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_25" class="elementor-field-label">Date :</label><input type="date" name="form_fields[field_25]" id="form-field-field_25" class="elementor-field elementor-size-md  elementor-field-textual elementor-date-field elementor-use-native" required="required" aria-required="true" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">       </div>
+                <div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-field_13 elementor-col-100 elementor-field-required elementor-mark-required">
+          <label for="form-field-field_13" class="elementor-field-label">T&amp;C</label><div class="elementor-field-subgroup"><span class="elementor-field-option"><input type="checkbox" name="form_fields[field_13]" id="form-field-field_13" class="elementor-field elementor-size-md  elementor-acceptance-field" required="required" aria-required="true"> <label for="form-field-field_13">By signing below, I certify that I have read, understand, and adhere to all
+applicable guidelines and agreements as stated. </label></span></div>       </div>
+                <div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100">
+          <button name="submit" type="submit" class="elementor-button elementor-size-md">
+            <span>
+                              <span class=" elementor-button-icon">
+                                                    </span>
+                                            <span class="elementor-button-text">Send</span>
+                          </span>
+          </button>
+        </div>
+      </div>
     </form>
   </div>
   </body>
