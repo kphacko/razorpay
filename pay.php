@@ -24,7 +24,7 @@ if (isset($_POST['submit']))
         $blood = mysqli_real_escape_string($conn, $_POST['form_fields[field_1]']);
         $place = mysqli_real_escape_string($conn, $_POST['form_fields[field_14]']);
         $date = mysqli_real_escape_string($conn, $_POST['form_fields[field_25]']);
-        $district = mysqli_real_escape_string($conn, $_POST['stt']);
+        $district = mysqli_real_escape_string($conn, $_POST['form_fields[district]']);
         $state = mysqli_real_escape_string($conn, $_POST['form_fields[field_4]']);
         // $photo = mysqli_real_escape_string($conn, $_POST['form_fields[field_19]']);
         $email = mysqli_real_escape_string($conn, $_POST['form_fields[field_78]']);
