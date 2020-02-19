@@ -48,6 +48,7 @@ if ($success === true)
                        $result= mysqli_query($conn,$sql);
                        $row= mysqli_fetch_array($result);
                        $nu='0';
+                       $cid='';
                        if(strlen($row['id'])<4){
                          $n=strlen($row['id']);
                          while($n!=0){
@@ -58,7 +59,7 @@ if ($success === true)
                         $cid=$cid.$row['id'];
                        }
                        $message=urlencode('Thank you! '.$row['name'].', for joining Elgaar. Your registration ID is '.$cid.'');
-                       $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
+                       $url='http://text.daxyi.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
                        $ch = curl_init();
 
                         // set URL and other appropriate options
@@ -70,7 +71,7 @@ if ($success === true)
 
                         // close cURL resource, and free up system resources
                         curl_close($ch);
-                        echo $url;
+                        //echo $url;
                        header("Location:index.php?stat=ps");
                        exit();
 }
