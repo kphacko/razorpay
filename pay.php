@@ -79,7 +79,7 @@ $razorpayOrder = $api->order->create($orderData);
 
 $razorpayOrderId = $razorpayOrder['id'];
 
-$_SESSION['razorpay_order_id'] = $razorpayOrderId;
+// $_SESSION['razorpay_order_id'] = $razorpayOrderId;
 
 $displayAmount = $amount = $orderData['amount'];
 
@@ -126,5 +126,8 @@ if ($displayCurrency !== 'INR')
 }
 
 $json = json_encode($data);
+$sql2="UPDATE `member` SET payment_id='$razorpayOrderId' WHERE id=".$id;
+ mysqli_query($conn, $sql2) or die(mysqli_error($conn));
+ // echo $sql2;
 
 require("checkout/{$checkout}.php");

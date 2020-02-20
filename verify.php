@@ -12,6 +12,9 @@ $success = true;
 
 $error = "Payment Failed";
 $id=$_POST['shopping_order_id'];
+$sql3="SELECT * from member where id=".$id;
+$result3= mysqli_query($conn,$sql3);
+$row3= mysqli_fetch_array($result3);
 
 if (empty($_POST['razorpay_payment_id']) === false)
 {
@@ -23,7 +26,7 @@ if (empty($_POST['razorpay_payment_id']) === false)
         // come from a trusted source (session here, but
         // could be database or something else)
         $attributes = array(
-            'razorpay_order_id' => $_SESSION['razorpay_order_id'],
+            'razorpay_order_id' => $row3['payment_id'],
             'razorpay_payment_id' => $_POST['razorpay_payment_id'],
             'razorpay_signature' => $_POST['razorpay_signature']
         );

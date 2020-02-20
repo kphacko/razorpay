@@ -10,6 +10,7 @@ $dbName= strtolower('ELGAARCO_DB1');
 // $dbName= 'payment';
 
 
+
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die("Connection failed");
 
 ?>
