@@ -1,25 +1,45 @@
 <?php 
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-if (strpos($url, "stat=s") !== false) {
-  echo '<script>
-  alert("Payment success");
-</script>';
-}
+
 if (strpos($url, "stat=f") !== false) {
   echo '<script>
   alert("Payment Failed");
 </script>';
 }
-if (strpos($url, "stat=fm") !== false) {
+elseif (strpos($url, "stat=fm") !== false) {
   echo '<script>
   alert("Invalid form");
 </script>';
 }
-if (strpos($url, "stat=ims") !== false) {
+elseif (strpos($url, "stat=ims") !== false) {
   echo '<script>
   alert("Image size should be less than 250 Kb");
 </script>';
-} ?>
+}
+elseif (strpos($url, "stat=err") !== false) {
+  echo '<script>
+  alert("Upload valid images.");
+</script>';
+}
+elseif (strpos($url, "stat=vs") !== false) {
+  echo '<script>
+  alert("Upload valid images. Only PNG and JPEG are allowed.");
+</script>';
+}
+elseif (strpos($url, "stat=size") !== false) {
+  echo '<script>
+  alert("Image size should be less than 250 Kb");
+</script>';
+}
+elseif (strpos($url, "stat=s") !== false) {
+  echo '<script>
+  alert("Payment success");
+</script>';
+}else{
+
+ 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -67,7 +67,8 @@ if (isset($_POST['submit']))
     else if (! in_array($file_extension, $allowed_image_extension)) {
         $response = array(
             "type" => "error",
-            "message" => "Upload valiid images. Only PNG and JPEG are allowed."
+            "message" => "Upload valiid images. Only PNG and JPEG are allowed.",
+            "status"=>"vs"
         );
         echo $result;
     }    // Validate image file size
@@ -75,7 +76,7 @@ if (isset($_POST['submit']))
         $response = array(
             "type" => "error",
             "message" => "Image size exceeds 2MB",
-            "status"=> "err size"
+            "status"=> "size"
         );
     }    // Validate image file dimension
     else {
@@ -96,7 +97,7 @@ $profileimage = $_FILES['file-input']['name'];
             $response = array(
                 "type" => "error",
                 "message" => "Problem in uploading image files.",
-                "status"=> "errsd"
+                "status"=> "err"
             );
         }
     }
