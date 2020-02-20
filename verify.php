@@ -1,9 +1,8 @@
  <?php
-error_reporting(0);
-ini_set('display_errors', 0);
+ session_start();
+// error_reporting(0);
+// ini_set('display_errors', 0);
 require('config.php');
-
-session_start();
 include_once('connect.php');
 require('razorpay-php/Razorpay.php');
 use Razorpay\Api\Api;
