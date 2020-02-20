@@ -1,3 +1,25 @@
+<?php 
+$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+if (strpos($url, "stat=s") !== false) {
+  echo '<script>
+  alert("Payment success");
+</script>';
+}
+if (strpos($url, "stat=f") !== false) {
+  echo '<script>
+  alert("Payment Failed");
+</script>';
+}
+if (strpos($url, "stat=fm") !== false) {
+  echo '<script>
+  alert("Invalid form");
+</script>';
+}
+if (strpos($url, "stat=ims") !== false) {
+  echo '<script>
+  alert("Image size should be less than 250 Kb");
+</script>';
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,7 +148,7 @@
 
                         <div class="form-group">
                             <label for="photo">Your Photo :</label>
-                            <input type="file" name="photo" id="photo" />
+                            <input type="file" name="file-input" id="photo" />
                         </div>
 
                         <p style="font-family: Montserrat">By submitting the form below, I certify that I have read,

@@ -1,14 +1,19 @@
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="../css/style.css">
-<div class="card text-center">
 <!--  The entire list of Checkout fields is available at
  https://docs.razorpay.com/docs/checkout-form#checkout-fields -->
-<div class="row" style="margin-top: 25px;">
-  <div class="col-md-4"></div>
-<div class="card text-center col-md-4">
+<div class="container" style="margin-top: 25px;">
+  <div class="row">
+  <div class="col-md-4 mob"></div>
+ <div class="col-md-4 "> 
+<div class="card text-center">
   <div class="card-header">
-    Payment Details
+    Confirm Payment Details
   </div>
+  <img src="img/elgaar.png">
   <div class="card-body">
     <h5 class="card-title">Paying : <?php echo $data['amount']/100?>  RS</h5>
     <p class="card-text">Name : <?php echo $data['prefill']['name']?></p>
@@ -35,9 +40,11 @@
 </form>
   </div>
   <div class="card-footer text-muted">
-    @Working with 
-<a href="//daxy.in" target="_blank">Daxy.in</a>
-  </div>
+    @Working with <a href="//daxy.in" target="_blank">Daxy.in</a>
 </div>
-<div class="col-md-4"></div>
+
+</div>
+<div class="col-md-4 mob"></div>
+</div>
+</div>
 </div>

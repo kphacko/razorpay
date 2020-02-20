@@ -38,16 +38,82 @@ if (isset($_POST['submit']))
         // $photo = mysqli_real_escape_string($conn, $_POST['form_fields[field_19]']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         // $pro = mysqli_real_escape_string($conn, $_POST['photo']);
+
+
+
+
+        // photograph validation
+         // Get Image Dimension
+    $fileinfo = @getimagesize($_FILES["file-input"]["tmp_name"]);
+    $width = $fileinfo[0];
+    $height = $fileinfo[1];
+    
+    $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
+    
+    // Get image file extension
+    $file_extension = pathinfo($_FILES["file-input"]["name"], PATHINFO_EXTENSION);
+    
+    // Validate file input to check if is not empty
+    if (! file_exists($_FILES["file-input"]["tmp_name"])) {
+        $response = array(
+            "type" => "error",
+            "message" => "Choose image file to upload."
+        );
+    }    // Validate file input to check if is with valid extension
+    else if (! in_array($file_extension, $allowed_image_extension)) {
+        $response = array(
+            "type" => "error",
+            "message" => "Upload valiid images. Only PNG and JPEG are allowed."
+        );
+        echo $result;
+    }    // Validate image file size
+    else if (($_FILES["file-input"]["size"] > 250000)) {
+        $response = array(
+            "type" => "error",
+            "message" => "Image size exceeds 2MB",
+            "status"=> "err size"
+        );
+    }    // Validate image file dimension
+    else {
+
+$profileimage = $_FILES['file-input']['name'];
+      $profiletarget = "img/profiles/".basename($profileimage);
+      
+
+        // $target = "img/profiles" . basename($_FILES["file-input"]["name"]);
+      // move_uploaded_file($_FILES["file-input"]["tmp_name"], $target)
+        if (move_uploaded_file($_FILES['file-input']['tmp_name'], $profiletarget)) {
+            $response = array(
+                "type" => "success",
+                "message" => "Image uploaded successfully.",
+                "status"=> "suc"
+            );
+        } else {
+            $response = array(
+                "type" => "error",
+                "message" => "Problem in uploading image files.",
+                "status"=> "errsd"
+            );
+        }
+    }
+
+        // end
       }
       else {
-        header("Location:index.php?stat=f");
+        header("Location:form/index.php?stat=fm");
         exit();
 
       }
-      $profileimage = $_FILES['photo']['name'];
-      $profiletarget = "img/profiles/".basename($profileimage);
-      move_uploaded_file($_FILES['photo']['name'], $profiletarget);
+      if($response["status"]!='suc'){
+        header("Location:form/index.php?stat=".$response["status"]);
+        exit();
 
+      }
+     
       // $sql="DELETE FROM `member` WHERE STATUS=0";
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
       // $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `martial`, `phone`, `email`, `address`, `pincode`, `aadhar`, `blood`, `place`, `date`, `district`, `state`, `status`,'profile') VALUES ('$fname','$mname','$lname','$dob','$gen','$martial','$phone','$email','$address','$pincode','$aadhar','$blood','$place','$date','$district','$state',0,'$pro');";
