@@ -24,8 +24,7 @@
                     <img src="images/2.jpg" alt="">
                 </div>
                 <div class="signup-form">
-                    <form method="POST" action="pay.php" class="register-form"
-                        id="register-form">
+                    <form method="POST" action="pay.php" class="register-form" id="register-form" enctype="multipart/form-data">
                         <h2>Registration form</h2>
                         <div class="form-row">
                             <div class="form-group">
@@ -117,10 +116,9 @@
                             <input type="text" name="place" id="place" />
                         </div>
 
-                        <!-- <div class="form-group">
-                            <label for="photograph">Photograph :</label>
-                            <input type="file" name="photo" id="photograph" />
-                        </div> -->
+                        <div class="form-group">
+                            Your Photo: <input type="file" name="photo" size="25" />
+                        </div>
 
                         <div class="form-submit">
                             <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />

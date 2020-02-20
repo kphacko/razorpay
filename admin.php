@@ -27,16 +27,19 @@ if (strpos($url, "stat=s") !== false) {
         <?php if($check1>0){ ?>
         <div class="table-responsive">
           <table id="dt-basic-checkbox"  class="table table-striped table-bordered" cellspacing="0" border ="2" align = "center" style="width:100%" >
-                <thead>
+                <thead class="thead-dark">
                   <tr>
-                  	<th></th>
-                  	<th class="th-sm"><h3><strong>Sr.no</strong></h3></th>
+                    <th></th>
+                  	<th class="th-sm"><h3><strong>ID No</strong></h3></th>
                     <th class="th-sm"><h3><strong>Name</strong></h3></th>
                     <th class="th-sm"><h3><strong>Email</strong></h3></th>
                     <th class="th-sm"><h3><strong>contact</strong></h3></th>
                     <th class="th-sm"><h3><strong>Gender</strong></h3></th>
-                    <th class="th-sm"><h3><strong>Age</strong></h3></th>
+                    
                     <th class="th-sm"><h3><strong>Address</strong></h3></th>
+                    <th class="th-sm"><h3><strong>District</strong></h3></th>
+                    <th class="th-sm"><h3><strong>state</strong></h3></th>
+                    <th class="th-sm"><h3><strong>Aadhar NO</strong></h3></th>
                     <th class="th-sm"><h3><strong>Fees</strong></h3></th>
 
                   </tr>
@@ -48,13 +51,15 @@ if (strpos($url, "stat=s") !== false) {
                   {
                         echo '<tr>
                         <td></td>
-                                <td>'.$c.'</td>
-                                <td>'.$row["name"].'</td>
+                                <td>'.$row["id"].'</td>
+                                <td>'.$row["fname"].' '.$row["mname"].' '.$row["lname"].'</td>
                                 <td>'.$row["email"].'</td>
                                 <td>'.$row["phone"].'</td>
                                 <td>'.$row["Gender"].'</td>
-                                <td>'.$row["age"].'</td>
                                 <td>'.$row["address"].'</td>
+                                <td>'.$row["district"].'</td>
+                                <td>'.$row["state"].'</td>
+                                <td>'.$row["aadhar"].'</td>
                                 <td>Paid</td>
                                 ';
 

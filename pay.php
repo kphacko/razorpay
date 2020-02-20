@@ -20,7 +20,14 @@ if (isset($_POST['submit']))
         $dob = mysqli_real_escape_string($conn, $_POST['birth_date']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $pincode = mysqli_real_escape_string($conn, $_POST['pincode']);
-        $gen = mysqli_real_escape_string($conn, $_POST['gender']);
+        
+        if ($_POST['gender']==='on') {
+
+           $gen = "male";
+        }
+        else{
+          $gen = "female";
+        }
         // $marital = mysqli_real_escape_string($conn, $_POST['']);
         $aadhar = mysqli_real_escape_string($conn, $_POST['aadhar']);
         // $blood = mysqli_real_escape_string($conn, $_POST['']);
@@ -37,16 +44,17 @@ if (isset($_POST['submit']))
         exit();
 
       }
-      // $profileimage = $_FILES['photo']['name'];
-      // $profiletarget = "img/profiles/".basename($profileimage);
+      $profileimage = $_FILES['photo']['name'];
+      $profiletarget = "img/profiles/".basename($profileimage);
+      move_uploaded_file($_FILES['photo']['name'], $profiletarget);
 
-      $sql="DELETE FROM `member` WHERE STATUS=0";
+      // $sql="DELETE FROM `member` WHERE STATUS=0";
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
       // $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `martial`, `phone`, `email`, `address`, `pincode`, `aadhar`, `blood`, `place`, `date`, `district`, `state`, `status`,'profile') VALUES ('$fname','$mname','$lname','$dob','$gen','$martial','$phone','$email','$address','$pincode','$aadhar','$blood','$place','$date','$district','$state',0,'$pro');";
       //           mysqli_query($conn, $sql1) or die(mysqli_error($conn));
       //           $id = $conn->insert_id;
-      mysqli_query($conn, $sql) or die(mysqli_error($conn));
-      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0);";
+      // mysqli_query($conn, $sql) or die(mysqli_error($conn));
+      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,`profile`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$profileimage');";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                 $id = $conn->insert_id;
                 // echo $id;
