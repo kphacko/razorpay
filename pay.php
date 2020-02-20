@@ -7,7 +7,7 @@ require('config.php');
 require('razorpay-php/Razorpay.php');
 include_once('connect.php');
 
-session_start();
+// session_start();
 
 // Create the Razorpay Order
 if (isset($_POST['submit']))

@@ -7,11 +7,11 @@
   <div class="col-md-4"></div>
 <div class="card text-center col-md-4">
   <div class="card-header">
-    Confirm Payment Details
+    Payment Details
   </div>
   <div class="card-body">
-    <h5 class="card-title">Paying:<?php echo $data['amount']/100?>  RS</h5>
-    <p class="card-text">Name:<?php echo $data['prefill']['name']?></p>
+    <h5 class="card-title">Paying : <?php echo $data['amount']/100?>  RS</h5>
+    <p class="card-text">Name : <?php echo $data['prefill']['name']?></p>
     <form action="verify.php" method="POST">
   <script
     src="https://checkout.razorpay.com/v1/checkout.js"
@@ -35,7 +35,8 @@
 </form>
   </div>
   <div class="card-footer text-muted">
-    @Designed by Daxy.in
+    @Working with 
+<a href="//daxy.in" target="_blank">Daxy.in</a>
   </div>
 </div>
 <div class="col-md-4"></div>

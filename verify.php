@@ -1,5 +1,5 @@
- <?php
- session_start();
+<?php
+ // session_start();
 // error_reporting(0);
 // ini_set('display_errors', 0);
 require('config.php');
@@ -74,7 +74,7 @@ if ($success === true)
                         // close cURL resource, and free up system resources
                         curl_close($ch);
                         //echo $url;
-                       header("Location:index.php?stat=ps");
+                       header("Location:form/index.php?stat=ps");
                        exit();
 }
 else
@@ -83,7 +83,7 @@ else
              <p>{$error}</p>";
              $sql1="UPDATE `member` SET `status`= 2,`payment_id` = '".$error."' WHERE id=".$id;
                        mysqli_query($conn, $sql1) or die(mysqli_error($conn));
-                       header("Location:index.php?stat=pf");
+                       header("Location:form/index.php?stat=pf");
                        exit();
 }
 

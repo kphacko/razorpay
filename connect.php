@@ -1,13 +1,13 @@
 <?php
 
 $dbServername= "localhost";
-$dbUsername= strtolower('ELGAARCO_DB1');
-$dbPassword= "KDEKI04V46";
-$dbName= strtolower('ELGAARCO_DB1');
+// $dbUsername= strtolower('ELGAARCO_DB1');
+// $dbPassword= "KDEKI04V46";
+// $dbName= strtolower('ELGAARCO_DB1');
 
-// $dbUsername= 'root';
-// $dbPassword='' ;
-// $dbName= 'payment';
+$dbUsername= 'root';
+$dbPassword='' ;
+$dbName= 'payment';
 
 
 
