@@ -42,25 +42,17 @@ if (empty($_POST['razorpay_payment_id']) === false)
 
 if ($success === true)
 {
+  $mydate=getdate(date("U"));
+$date="$mydate[mday] $mydate[month], $mydate[year]";
     $html = "<p>Your payment was successful</p>
              <p>Payment ID: {$_POST['razorpay_payment_id']}</p>";
-             $sql1="UPDATE `member` SET `status`= 1,`payment_id` = '".$_POST['razorpay_payment_id']."' WHERE id=".$id;
+             $sql1="UPDATE `member` SET `status`= 1,`date`='".$date."',`payment_id` = '".$_POST['razorpay_payment_id']."' WHERE id=".$id;
                        mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                        $sql="SELECT * From member WHERE id=".$id;
                        $result= mysqli_query($conn,$sql);
                        $row= mysqli_fetch_array($result);
-                       $nu='0';
-                       $cid='';
-                       if(strlen($row['id'])<4){
-                         $n=strlen($row['id']);
-                         while($n!=0){
-
-                        $cid=$cid.$nu;
-                        $n=$n-1;
-                        }
-                        $cid=$cid.$row['id'];
-                       }
-                       $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$cid.'');
+                       
+                       $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].'');
                        $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
                        $ch = curl_init();
 
@@ -74,7 +66,7 @@ if ($success === true)
                         // close cURL resource, and free up system resources
                         curl_close($ch);
                         //echo $url;
-                       header("Location:form/index.php?stat=s");
+                       header("Location:ID/id.php?id=".$cid);
                        exit();
 }
 else

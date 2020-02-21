@@ -13,10 +13,10 @@ include_once('connect.php');
 if (isset($_POST['submit']))
     {
 
-        $fname = mysqli_real_escape_string($conn, $_POST['first_name']);
-        $mname = mysqli_real_escape_string($conn, $_POST['middle_name']);
-        $lname = mysqli_real_escape_string($conn, $_POST['last_name']);
-        $address = mysqli_real_escape_string($conn, $_POST['address']);
+        $fname =ucfirst(mysqli_real_escape_string($conn, $_POST['first_name']));
+        $mname = ucfirst(mysqli_real_escape_string($conn, $_POST['middle_name']));
+        $lname = ucfirst(mysqli_real_escape_string($conn, $_POST['last_name']));
+        $address = ucfirst(mysqli_real_escape_string($conn, $_POST['address']));
         $dob = mysqli_real_escape_string($conn, $_POST['birth_date']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $pincode = mysqli_real_escape_string($conn, $_POST['pincode']);
@@ -195,6 +195,19 @@ if ($displayCurrency !== 'INR')
 $json = json_encode($data);
 $sql2="UPDATE `member` SET payment_id='$razorpayOrderId' WHERE id=".$id;
  mysqli_query($conn, $sql2) or die(mysqli_error($conn));
+                    $c='';
+                    $n=strlen($id);
+                    $c=7-$n;
+                    $b='';
+                    while ($c!=0) { 
+                        $b=$b.'0';
+                        $c--;
+                    }
+                    
+                    $nid=$b.$id;
+
+ $sql3="UPDATE `member` SET kid='$nid' WHERE id=".$id;
+ mysqli_query($conn, $sql3) or die(mysqli_error($conn));
  // echo $sql2;
 
 require("checkout/{$checkout}.php");

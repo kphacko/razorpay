@@ -13,10 +13,10 @@
   <div class="card-header">
     Confirm Payment Details
   </div>
-  <img src="img/elgaar.png">
+  <img src="img/elgaar.png" style="width: 85%; margin: 10px auto;">
   <div class="card-body">
     <h5 class="card-title">Paying : <?php echo $data['amount']/100?>  RS</h5>
-    <p class="card-text">Name : <?php echo $data['prefill']['name']?></p>
+    <p class="card-title">Name : <?php echo $data['prefill']['name']?></p>
     <form action="verify.php" method="POST">
   <script
     src="https://checkout.razorpay.com/v1/checkout.js"
