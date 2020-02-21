@@ -1,3 +1,5 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php
 include_once 'connect.php';
 include_once 'header.php';
@@ -29,7 +31,7 @@ if (strpos($url, "stat=s") !== false) {
           <table id="dt-basic-checkbox"  class="table table-striped table-bordered" cellspacing="0" border ="2" align = "center" style="width:100%" >
                 <thead class="thead-dark">
                   <tr>
-                    <th></th>
+                  
                   	<th class="th-sm"><h3><strong>ID No</strong></h3></th>
                     <th class="th-sm"><h3><strong>Name</strong></h3></th>
                     <th class="th-sm"><h3><strong>Email</strong></h3></th>
@@ -39,8 +41,9 @@ if (strpos($url, "stat=s") !== false) {
                     <th class="th-sm"><h3><strong>Address</strong></h3></th>
                     <th class="th-sm"><h3><strong>District</strong></h3></th>
                     <th class="th-sm"><h3><strong>state</strong></h3></th>
-                    <th class="th-sm"><h3><strong>Aadhar NO</strong></h3></th>
+                    <th class="th-sm"><h3><strong>Aadhar N0</strong></h3></th>
                     <th class="th-sm"><h3><strong>Fees</strong></h3></th>
+                    <th class="th-sm"><h3><strong>Post</strong></h3></th>
 
                   </tr>
                   </thead>
@@ -50,8 +53,8 @@ if (strpos($url, "stat=s") !== false) {
                   while ($row = mysqli_fetch_array($result))
                   {
                         echo '<tr>
-                        <td></td>
-                                <td>'.$row["id"].'</td>
+                        
+                                <td>'.$row["kid"].'</td>
                                 <td>'.$row["fname"].' '.$row["mname"].' '.$row["lname"].'</td>
                                 <td>'.$row["email"].'</td>
                                 <td>'.$row["phone"].'</td>
@@ -60,8 +63,17 @@ if (strpos($url, "stat=s") !== false) {
                                 <td>'.$row["district"].'</td>
                                 <td>'.$row["state"].'</td>
                                 <td>'.$row["aadhar"].'</td>
-                                <td>Paid</td>
-                                ';
+                                <td>Paid</td>';
+                                echo '<td><form action="post.php?id='.$row['id'].'"><div class="form-group">
+    <label for="exampleFormControlSelect1">Current Post : '.$row['post'].'</label>
+   <select name="post" id="state">
+                                        <option selected>Change Post</option>
+                                        <option value="Kamgar">Kamgar</option>
+                                        <option value="Karykarta">Karykarta</option>
+                                    </select>
+                                    <button name="submit" type="submit" class="btn btn-primary">Change</button>
+  </div>
+  </form></td>';
 
                                 echo '</tr>';
                                 $c++;

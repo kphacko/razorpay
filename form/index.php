@@ -47,7 +47,7 @@ elseif (strpos($url, "stat=s") !== false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Registration - ELGAAR</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -147,28 +147,29 @@ elseif (strpos($url, "stat=s") !== false) {
 
                         <div class="form-group">
                             <label for="pincode">Pincode :</label>
-                            <input type="text" name="pincode" id="pincode">
+                            <input type="number" name="pincode" id="pincode" required>
                         </div>
 
                         <div class="form-group">
                             <label for="birth_date">DOB :</label>
-                            <input type="date" name="birth_date" id="birth_date" style="text-transform: uppercase">
+                            <input type="date" name="birth_date" id="birth_date" style="text-transform: uppercase" required>
                         </div>
 
 
                         <div class="form-group">
                             <label for="email">Email ID :</label>
-                            <input type="email" name="email" id="email" />
+                            <input type="email" name="email" id="email" required/>
                         </div>
 
                         <div class="form-group">
                             <label for="aadhar">Aadhar :</label>
-                            <input type="text" name="aadhar" id="aadhar" />
+                            <input type="number" name="aadhar" id="aadhar" minlength='12' maxlength='12' required/>
                         </div>
 
                         <div class="form-group">
                             <label for="photo">Your Photo :</label>
-                            <input type="file" name="file-input" id="photo" />
+                            <p style='text-transform: uppercase; font-family: Montserrat;'>Note : Image size should be less then 250 KB</p>
+                            <input type="file" name="file-input" id="photo" required/>
                         </div>
 
                         <p style="font-family: Montserrat">By submitting the form below, I certify that I have read,

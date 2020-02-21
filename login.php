@@ -2,13 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Log In</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container" style="margin:10px auto;">
+    <div class="row">
+      <div class="col-md-3"></div>
+    <div class="col-md-6">
         <div class="card">
-  <img src="img/elgaar.png" class="card-img-top" alt="...">
+  <img src="img/elgaar.png" class="card-img-top" alt="..." style="width: 80%; margin:10px auto;">
   <div class="card-body">
     <h3 class="card-title text-center">Log In</h3>
     <form action="login.inc.php" method="post">
@@ -26,6 +31,9 @@
 </form>
    
   </div>
+</div>
+</div>
+<div class="col-md-3"></div>
 </div>
 </div>  
    
