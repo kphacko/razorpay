@@ -66,7 +66,7 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
                         // close cURL resource, and free up system resources
                         curl_close($ch);
                         //echo $url;
-                       header("Location:ID/id.php?id=".$cid);
+                       header("Location:ID/id.php?id=".$id);
                        exit();
 }
 else
