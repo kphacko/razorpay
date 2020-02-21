@@ -179,7 +179,7 @@ elseif (strpos($url, "stat=s") !== false) {
 
                         <p style="font-family: Montserrat">By submitting the form below, I certify that I have read,
                             understand, and adhere to all
-                            applicable guidelines and agreements as stated. </p>
+                            applicable guidelines and agreements as stated.</p>
                        
 
                         <div class="form-submit">
