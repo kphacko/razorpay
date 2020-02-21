@@ -3,21 +3,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="../css/style.css">
+<style type="text/css">
+  #pay,#pay2{
+    font-size: 15px;
+    position: relative;
+    margin-left:20px;
+  }
+  .bold{
+    font-weight: 700;
+  }
+
+</style>
 <!--  The entire list of Checkout fields is available at
  https://docs.razorpay.com/docs/checkout-form#checkout-fields -->
 <div class="container" style="margin-top: 25px;">
   <div class="row">
   <div class="col-md-4 mob"></div>
  <div class="col-md-4 "> 
-<div class="card text-center">
-  <div class="card-header">
+<div class="card">
+  <div class="card-header text-center">
     Confirm Payment Details
   </div>
   <img src="img/elgaar.png" style="width: 85%; margin: 10px auto;">
   <div class="card-body">
-    <h5 class="card-title">Paying : <?php echo $data['amount']/100?>  RS</h5>
-    <p class="card-title">Name : <?php echo $data['prefill']['name']?></p>
-    <form action="verify.php" method="POST">
+    <h5 id='pay2' class="card-title">Name : <span class="bold"><?php echo $data['prefill']['name']?></span></h5>
+    <h5 id='pay2' class="card-title">Phone : <span class="bold"><?php echo $data['prefill']['contact']?></span></h5>
+    <h5 id='pay2' class="card-title">E-mail : <span class="bold"><?php echo $data['prefill']['email']?></span></h5>
+
+ 
+      <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Particular</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sangathana Registration</td>
+        <td>130</td>
+    
+      </tr>
+      <tr>
+        <td>ID Generation</td>
+        <td>20</td>
+        
+      </tr>
+      <tr class="bold">
+        <td>Total Amount</td>
+        <td>150</td>
+    
+      </tr>
+    </tbody>
+  </table>
+    <form class='text-center' style="margin-top: 20px;" action="verify.php" method="POST">
   <script
     src="https://checkout.razorpay.com/v1/checkout.js"
     data-key="<?php echo $data['key']?>"

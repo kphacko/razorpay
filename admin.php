@@ -3,15 +3,13 @@
 <?php
 include_once 'connect.php';
 include_once 'header.php';
-
-
 $sql="SELECT * from member where status=1";
 $result= mysqli_query($conn,$sql);
 $check1=mysqli_num_rows($result);
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-if (strpos($url, "stat=s") !== false) {
+if (strpos($url, "stat=c") !== false) {
   echo '<script>
-  alert("Registration successfull");
+  alert("Post changed successfull");
 </script>';
 }elseif (strpos($url, "stat=d") !== false) {
   echo '<script>
@@ -20,7 +18,7 @@ if (strpos($url, "stat=s") !== false) {
 }
 ?>
 <!-- -->
-<div class="col-md-12" style="margin-top: 6%;">
+<div class="col-md-12">
 	<div class="text-center">
 	<h4>Registered Users</h4>
 	</div>
@@ -64,7 +62,7 @@ if (strpos($url, "stat=s") !== false) {
                                 <td>'.$row["state"].'</td>
                                 <td>'.$row["aadhar"].'</td>
                                 <td>Paid</td>';
-                                echo '<td><form action="post.php?id='.$row['id'].'"><div class="form-group">
+                                echo '<td><form action="post.php?id='.$row['id'].'" method="POST"><div class="form-group">
     <label for="exampleFormControlSelect1">Current Post : '.$row['post'].'</label>
    <select name="post" id="state">
                                         <option selected>Change Post</option>
