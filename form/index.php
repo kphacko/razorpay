@@ -179,11 +179,8 @@ elseif (strpos($url, "stat=s") !== false) {
 
                         <p style="font-family: Montserrat">By submitting the form below, I certify that I have read,
                             understand, and adhere to all
-                            applicable guidelines and agreements as stated.</p>
-                        <!-- <div class="form-group">
-                            <label for="photograph">Photograph :</label>
-                            <input type="file" name="photo" id="photograph" />
-                        </div> -->
+                            applicable guidelines and agreements as stated. </p>
+                       
 
                         <div class="form-submit">
                             <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
