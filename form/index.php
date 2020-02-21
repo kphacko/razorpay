@@ -167,6 +167,11 @@ elseif (strpos($url, "stat=s") !== false) {
                         </div>
 
                         <div class="form-group">
+                            <label for="tow">Type of work :</label>
+                            <input type="text" name="tow" id="aadhar" required/>
+                        </div>
+
+                        <div class="form-group">
                             <label for="photo">Your Photo :</label>
                             <p style='text-transform: uppercase; font-family: Montserrat;'>Note : Image size should be less then 250 KB</p>
                             <input type="file" name="file-input" id="photo" required/>
