@@ -66,8 +66,9 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
                         // close cURL resource, and free up system resources
                         curl_close($ch);
                         //echo $url;
-                       header("Location:ID/id.php?id=".$id);
-                       exit();
+                       // header("Location:ID/id.php?id=".$id);
+                       // exit();
+                        echo "<script>window.open('ID/id.php?id=$id','_self')</script>";
 }
 else
 {
