@@ -17,6 +17,7 @@ if (strpos($url, "stat=c") !== false) {
 </script>';
 }
 ?>
+
 <!-- -->
 <div class="col-md-12">
 	<div class="text-center">
@@ -29,7 +30,7 @@ if (strpos($url, "stat=c") !== false) {
           <table id="dt-basic-checkbox"  class="table table-striped table-bordered" cellspacing="0" border ="2" align = "center" style="width:100%" >
                 <thead class="thead-dark">
                   <tr>
-                  
+                  <th></th>
                   	<th class="th-sm"><h3><strong>ID No</strong></h3></th>
                     <th class="th-sm"><h3><strong>Name</strong></h3></th>
                     <th class="th-sm"><h3><strong>Email</strong></h3></th>
@@ -51,7 +52,7 @@ if (strpos($url, "stat=c") !== false) {
                   while ($row = mysqli_fetch_array($result))
                   {
                         echo '<tr>
-                        
+                        <td></td> 
                                 <td>'.$row["kid"].'</td>
                                 <td>'.$row["fname"].' '.$row["mname"].' '.$row["lname"].'</td>
                                 <td>'.$row["email"].'</td>
@@ -118,7 +119,7 @@ selector: 'td:first-child'
 }
 });
 </script>
-
+<script type="text/javascript" src="js/addons/datatables.min.js"></script>
 
 <?php
 include_once'footer.php';

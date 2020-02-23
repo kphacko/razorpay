@@ -80,6 +80,13 @@ if (isset($_POST['submit']))
             "status"=> "size"
         );
     }    // Validate image file dimension
+     else if ($width > "300" || $height > "200") {
+        $response = array(
+            "type" => "error",
+            "message" => "Image dimension should be within 300X200",
+            "status"=> "dim"
+        );
+    }
     else {
 
 $profileimage = $_FILES['file-input']['name'];

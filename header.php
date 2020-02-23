@@ -6,7 +6,30 @@ if(!strcmp("admin",$_SESSION['privilege'])==0)
   exit();
 }
 ?>
+ <?php 
+        $url="http://text.daxy.in/http-credit.php?username=daxy&password=Karan@7&route_id=2";
+         
+                       $ch = curl_init();
 
+                        // set URL and other appropriate options
+                        curl_setopt($ch, CURLOPT_URL, $url);
+                        curl_setopt($ch, CURLOPT_HEADER, 0);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                        // grab URL and pass it to the browser
+                        $cr=curl_exec($ch);
+                        // close cURL resource, and free up system resources
+                        curl_close($ch);
+
+
+
+$str = preg_replace('/\D/', '', $cr);
+// echo $str;
+
+
+
+
+        ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,38 +52,31 @@ if(!strcmp("admin",$_SESSION['privilege'])==0)
 <body>
   <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
   <a class="navbar-brand" href="#">Elgaar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
- <!--    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="admin.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="send.php">Send SMS</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li class="nav-item disable" >
+        <button type="button" class="<?php if($str<100){
+          echo 'btn btn-danger';
+        }else{
+         echo 'btn btn-success'; 
+        } ?>">Total SMS balance:<?php echo $str;?></button>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul> -->
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
+      
+      
+    </ul>
+   
     <div class="nav-item " style="float:right;">
         <a class="btn btn-primary" href="logout.php">Logout</a>
       </div>

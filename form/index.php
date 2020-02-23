@@ -31,6 +31,11 @@ elseif (strpos($url, "stat=size") !== false) {
   alert("Image size should be less than 250 Kb");
 </script>';
 }
+elseif (strpos($url, "stat=dim") !== false) {
+  echo '<script>
+  alert("Image dimension should be within 300X200");
+</script>';
+}
 elseif (strpos($url, "stat=s") !== false) {
   echo '<script>
   alert("Payment success");
