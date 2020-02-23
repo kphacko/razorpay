@@ -2,6 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/style.css">
 <style type="text/css">
   #pay,#pay2{
@@ -41,17 +42,17 @@
     <tbody>
       <tr>
         <td>Sangathana Registration</td>
-        <td>130</td>
+        <td>130 ₹</td>
     
       </tr>
       <tr>
         <td>ID Generation</td>
-        <td>20</td>
+        <td>20 ₹</td>
         
       </tr>
       <tr class="bold">
         <td>Total Amount</td>
-        <td>150</td>
+        <td>150 ₹</td>
     
       </tr>
     </tbody>

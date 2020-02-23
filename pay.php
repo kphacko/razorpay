@@ -20,6 +20,7 @@ if (isset($_POST['submit']))
         $dob = mysqli_real_escape_string($conn, $_POST['birth_date']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $pincode = mysqli_real_escape_string($conn, $_POST['pincode']);
+        $tow = mysqli_real_escape_string($conn, $_POST['tow']);
         
         if ($_POST['gender']==='on') {
 
@@ -121,7 +122,7 @@ $profileimage = $_FILES['file-input']['name'];
       //           mysqli_query($conn, $sql1) or die(mysqli_error($conn));
       //           $id = $conn->insert_id;
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
-      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,`profile`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$profileimage');";
+      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,`profile`,`tow`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$profileimage','$tow');";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                 $id = $conn->insert_id;
                 // echo $id;

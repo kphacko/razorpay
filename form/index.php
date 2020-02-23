@@ -66,8 +66,8 @@ elseif (strpos($url, "stat=s") !== false) {
                     <img src="images/3.jpg" style='height: 99.5%;object-fit: cover;' alt="">
                 </div>
                 <div class="signup-form">
-                    <form method="POST" action="../pay.php" class="register-form"
-                        id="register-form" enctype="multipart/form-data">
+                    <form name="myForm" method="POST" action="../pay.php" class="register-form"
+                        id="register-form" enctype="multipart/form-data" onsubmit="return validateForm()">
                         <img src="images/header.png" alt="">
 
 
@@ -163,7 +163,7 @@ elseif (strpos($url, "stat=s") !== false) {
 
                         <div class="form-group">
                             <label for="aadhar">Aadhar :</label>
-                            <input type="number" name="aadhar" id="aadhar" minlength='12' maxlength='12' required/>
+                            <input type="tel" pattern="[0-9]{12}" name="aadhar" id="aadhar" minlength='12' maxlength='12' required/>
                         </div>
 
                         <div class="form-group">
@@ -201,6 +201,23 @@ elseif (strpos($url, "stat=s") !== false) {
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
+<!-- form validation  -->
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["phone"].value;
+   var phoneno = /^\d{10}$/;
+  if((inputtxt.value.match(phoneno))
+        {
+      // return true;
+        }
+      else
+        {
+        alert("Enter valid number");
+        return false;
+        }
+</script>
+
+
 </body>
 
 </html>

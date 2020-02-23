@@ -4,135 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Roboto:400,500,700&display=swap"
+        rel="stylesheet">
+    <title>ID</title>
+    <style type="text/css">
+        #ID {
+            height: 3.375in;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+        .front,
+        .back {
+            margin: 100px 10px;
+            width: 2.125in;
+            height: 3.375in;
+            position: relative;
+            float: left;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/cities.js"></script>
+        #header {
+            margin-top: 10px;
+            width: 200px;
+            border-bottom: 1.5px solid black;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+        #photo {
+            margin: 15px auto;
+            width: 70px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid black;
+        }
+
+        body {
+            font-family: "Roboto";
+            font-size: 12px;
+            margin-left: 10px;
+            color: #313191;
+            font-weight: 500;
+
+        }
+
+        #name,
+        #post,
+        #address,
+        #aadhar,
+        #mobile,
+        #issue,
+        #validity {
+            margin-left: 15px;
+        }
+
+        .sign {
+            width: 50px;
+            position: fixed;
+            top: 370px;
+            left: 150px;
+        }
+
+        #foot {
+            bottom: -15px;
+            width: 80%;
+            font-size: 8px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .red {
+            color: red;
+        }
+
+        .bold {
+            font-weight: 800;
+        }
+
+        #signature {
+            position: fixed;
+            top: 380px;
+            left: 150px;
+        }
+    </style>
 </head>
 
 <body>
-
-    <div class="main">
-        <div class="container">
-            <div class="signup-content">
-                <div class="signup-img">
-                    <img src="images/2.jpg" alt="">
-                </div>
-                <div class="signup-form">
-                    <form method="POST" action="pay.php" class="register-form" id="register-form" enctype="multipart/form-data">
-                        <h2>Registration form</h2>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">First Name :</label>
-                                <input type="text" name="first_name" id="name" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="middle_name">Middle Name :</label>
-                                <input type="text" name="middle_name" id="middle_name" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="last_name">Last Name :</label>
-                                <input type="text" name="last_name" id="last_name" required />
-                            </div>
-                        </div>
-                        <div class="form-radio">
-                            <label for="gender" class="radio-label">Gender :</label>
-                            <div class="form-radio-item">
-                                <input type="radio" name="gender" id="male" checked>
-                                <label for="male">Male</label>
-                                <span class="check"></span>
-                            </div>
-                            <div class="form-radio-item">
-                                <input type="radio" name="gender" id="female">
-                                <label for="female">Female</label>
-                                <span class="check"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone :</label>
-                            <input type="number" name="phone" id="phone" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="address">Address :</label>
-                            <input type="text" name="address" id="address" required />
-                        </div>
-
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="state">State :</label>
-                                <div class="form-select">
-                                    <select name="state" id="state">
-                                        <option value=""></option>
-                                        <option value="us">America</option>
-                                        <option value="uk">English</option>
-                                    </select>
-                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="city">District :</label>
-                                <div class="form-select">
-                                    <select name="district" id="city">
-                                        <option value=""></option>
-                                        <option value="losangeles">Los Angeles</option>
-                                        <option value="washington">Washington</option>
-                                    </select>
-                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="pincode">Pincode :</label>
-                            <input type="text" name="pincode" id="pincode">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="birth_date">DOB :</label>
-                            <input type="date" name="birth_date" id="birth_date" style="text-transform: uppercase">
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="email">Email ID :</label>
-                            <input type="email" name="email" id="email" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="aadhar">Aadhar :</label>
-                            <input type="text" name="aadhar" id="aadhar" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="place">Place :</label>
-                            <input type="text" name="place" id="place" />
-                        </div>
-
-                        <div class="form-group">
-                            Your Photo: <input type="file" name="photo" size="25" />
-                        </div>
-
-                        <div class="form-submit">
-                            <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
-                            <input type="submit" value="Submit Form" class="submit" name="submit" id="submit" />
-                        </div>
-                    </form>
-                </div>
+    <div id="ID">
+        <div class="front">
+            <img id="header" src="header.png">
+            <img id="photo" src="../img/profiles/echo $row3['profile']?>">
+            <p id="name"><span class="bold">Name : </span><?php echo $row3['fname'].' '.$row3['mname'].' '.$row3['lname']; ?></p>
+            <p id="post"><span class="bold">POST : </span><?php echo $row3['post'];?></p>
+            <p id="post"><span class="bold">ID No : </span><?php echo $row3['id'];?></p>
+            
+            <p id="signature" class="bold">President</p>
+            <img class="sign" src="sign.png">
+        </div>
+        <div class="back">
+            <img id="header" src="header.png">
+            <p id="address"><span class="bold">Address : </span> <?php echo $row3["address"].",".$row3["state"].",".$row3["pincode"];?></p>
+            <p id="aadhar"><span class="bold">Aadhar : </span><?php echo $row3["aadhar"];?></p>
+            <p id="mobile"><span class="bold">Mobile : </span><?php echo $row3["phone"];?></p>
+            <p id="issue"><span class="bold">Issue Date : </span><?php echo $row3["date"];?></p>
+            <p id="validity"><span class="bold">Validity : </span> 5 years</p>
+            <div id="foot">
+                <p>National Office : <span class="red">6/15, Milind Nagar, Mhada Colony, J V Link Road, Powai,
+                        Mumbai-400072.</span>
+                </p>
+                <p>Contact : <span class="red">+91-9819211067</span></p>
             </div>
         </div>
 
     </div>
-
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
 </body>
-
 </html>
