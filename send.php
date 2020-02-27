@@ -28,6 +28,7 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
                         exit();
 
 }elseif ($stat=='s') {  
+                       $msg=$_POST['text'];
                        $sql="SELECT * From member";
                        $result= mysqli_query($conn,$sql);
                        $check1=mysqli_num_rows($result);
@@ -48,6 +49,7 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
 
                           $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].'');
                        $url='http://texti.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$phone1.'&message='.$message.'';
+                          // $url='192.168.0.106/test/test.php';
                        $ch = curl_init();
 
                         // set URL and other appropriate options
@@ -70,6 +72,7 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
 
                           $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].'');
                        $url='http://texti.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$phone.'&message='.$message.'';
+                          // $url='http://192.168.0.106/test/test.php';
                        $ch = curl_init();
 
                         // set URL and other appropriate options
@@ -88,6 +91,9 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
                          
                         }//end of main while
                        
+                         header("Location:admin.php?stat=s");
+                        exit();
+
                       }//end of elseif
                
                // echo $cal1;       
@@ -97,8 +103,7 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
 
                        
                        
-                        header("Location:admin.php?stat=v");
-                        exit();
+                       
 
 
 //                         echo 'greater than 50 "<br>"';
