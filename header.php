@@ -67,8 +67,12 @@ $str = preg_replace('/\D/', '', $cr);
         <a class="nav-link" href="admin.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="verified.php">Verified Members</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="send.inc.php">Send SMS</a>
       </li>
+
       <li class="nav-item disable" >
         <button type="button" class="<?php if($str<100){
           echo 'btn btn-danger';

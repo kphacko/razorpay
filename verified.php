@@ -3,7 +3,7 @@
 <?php
 include_once 'connect.php';
 include_once 'header.php';
-$sql="SELECT * from member where status=1";
+$sql="SELECT * from member where status=3";
 $result= mysqli_query($conn,$sql);
 $check1=mysqli_num_rows($result);
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -11,9 +11,9 @@ if (strpos($url, "stat=c") !== false) {
   echo '<script>
   alert("Post changed successfully");
 </script>';
-}elseif (strpos($url, "stat=v") !== false) {
+}elseif (strpos($url, "stat=d") !== false) {
   echo '<script>
-  alert("Verified successfully");
+  alert("Deleted successfully");
 </script>';
 }
 ?>
@@ -21,7 +21,7 @@ if (strpos($url, "stat=c") !== false) {
 <!-- -->
 <div class="col-md-12">
 	<div class="text-center">
-	<h4>Registered Users</h4>
+	<h4>Verified Users</h4>
 	</div>
     <section id="main-content mt-5">
       <section class="wrapper">

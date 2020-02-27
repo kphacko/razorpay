@@ -80,7 +80,7 @@ if (isset($_POST['submit']))
             "status"=> "size"
         );
     }    // Validate image file dimension
-      else if ($width > "400" || $height > "500") {
+      else if ($width > "420" || $height > "530") {
          $response = array(
              "type" => "error",
              "message" => "Image dimension should be within 300X200",

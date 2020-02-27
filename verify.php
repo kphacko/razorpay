@@ -52,7 +52,7 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
                        $result= mysqli_query($conn,$sql);
                        $row= mysqli_fetch_array($result);
                        
-                       $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].'');
+                       $message=urlencode('Payment successful & Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. we will ');
                        $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
                        $ch = curl_init();
 
@@ -81,3 +81,4 @@ else
 }
 
 
+// Your registration ID is '.$row['kid'].'

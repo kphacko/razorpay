@@ -9,9 +9,17 @@ if($stat=='v'){
 $sql="SELECT * From member where id=".$id;
 $result= mysqli_query($conn,$sql);
 $row= mysqli_fetch_array($result);
-
-$message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].'');
-                       $url='http://texti.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
+$timestamp = time();
+// actual value: $time = 1582820727
+$signature = md5( $timestamp . '6e578fd37e' ); 
+$url='https://elgaar.com/reg/ID/id.php?id='.$id;
+$url = urlencode($url);
+$api_url = 'http://techmylife.in/yourls-api.php?action=shorturl&username=karan&password=karan@7&format=json&url='.$url;
+$arr_output = json_decode(file_get_contents($api_url), true);
+$surl = $arr_output["shorturl"];
+// echo $surl;
+$message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].' & get your id here '.$surl.'');
+                       $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
                        $ch = curl_init();
 
                         // set URL and other appropriate options
@@ -23,7 +31,7 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
 
                         // close cURL resource, and free up system resources
                         curl_close($ch);
-
+                        // echo $url;
                         header("Location:admin.php?stat=v");
                         exit();
 
