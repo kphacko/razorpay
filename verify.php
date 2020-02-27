@@ -68,7 +68,7 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
                         //echo $url;
                        // header("Location:ID/id.php?id=".$id);
                        // exit();
-                        echo "<script>window.open('ID/id.php?id=$id','_self')</script>";
+                        echo "<script>window.open('form/index.php?stat=reg','_self')</script>";
 }
 else
 {

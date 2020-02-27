@@ -3,13 +3,13 @@
 <?php
 include_once 'connect.php';
 include_once 'header.php';
-$sql="SELECT * from member where status=1";
+$sql="SELECT * from member where status=1 OR status=3";
 $result= mysqli_query($conn,$sql);
 $check1=mysqli_num_rows($result);
 $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 if (strpos($url, "stat=c") !== false) {
   echo '<script>
-  alert("Post changed successfull");
+  alert("Post changed successfully");
 </script>';
 }elseif (strpos($url, "stat=d") !== false) {
   echo '<script>
@@ -41,8 +41,8 @@ if (strpos($url, "stat=c") !== false) {
                     <th class="th-sm"><h3><strong>District</strong></h3></th>
                     <th class="th-sm"><h3><strong>state</strong></h3></th>
                     <th class="th-sm"><h3><strong>Aadhar N0</strong></h3></th>
-                    <th class="th-sm"><h3><strong>Fees</strong></h3></th>
-                    <th class="th-sm"><h3><strong>Post</strong></h3></th>
+                    <th class="th-sm"><h3><strong>Status</strong></h3></th>
+                    <th class="th-sm"><h3><strong>Current Post</strong></h3></th>
 
                   </tr>
                   </thead>
@@ -61,16 +61,23 @@ if (strpos($url, "stat=c") !== false) {
                                 <td>'.$row["address"].'</td>
                                 <td>'.$row["district"].'</td>
                                 <td>'.$row["state"].'</td>
-                                <td>'.$row["aadhar"].'</td>
-                                <td>Paid</td>';
+                                <td>'.$row["aadhar"].'</td>';
+                                if($row['status']==1) {
+                                  echo '<td><a style="margin: 10px auto; type="button" class="btn btn-success" href="ver.php?id='.$row['id'].'">verify</a></td>';
+                                  
+                                }else{
+                                  echo "<td>Verified</td>";
+                                }
+
+                                 
                                 echo '<td><form action="post.php?id='.$row['id'].'" method="POST"><div class="form-group">
-    <label for="exampleFormControlSelect1">Current Post : '.$row['post'].'</label>
+    <label for="exampleFormControlSelect1">'.$row['post'].'</label>
    <select name="post" id="state">
                                         <option selected>Change Post</option>
                                         <option value="Kamgar">Kamgar</option>
                                         <option value="Karykarta">Karykarta</option>
                                     </select>
-                                    <button name="submit" type="submit" class="btn btn-primary">Change</button>
+                                    <button style="margin-top: 10px; margin-bottom:0px;" name="submit" type="submit" class="btn btn-primary">Change</button>
   </div>
   </form></td>';
 

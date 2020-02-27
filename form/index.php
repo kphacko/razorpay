@@ -36,9 +36,9 @@ elseif (strpos($url, "stat=dim") !== false) {
   alert("Image dimension should be within 300X200");
 </script>';
 }
-elseif (strpos($url, "stat=s") !== false) {
+elseif (strpos($url, "stat=reg") !== false) {
   echo '<script>
-  alert("Payment success");
+  alert("Registered sucessfully");
 </script>';
 }else{
 
