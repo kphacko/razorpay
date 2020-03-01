@@ -7,7 +7,18 @@ require('config.php');
 require('razorpay-php/Razorpay.php');
 include_once('connect.php');
 
-// session_start();
+session_start();
+if (is_null($_SESSION['user'])) {
+    $_SESSION['user']='created';
+}else{
+    session_unset();
+  session_destroy();
+    $id = $conn->insert_id;
+    $sql="DELETE FROM `member` WHERE STATUS=0 AND id=".$id;
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+header("Location: form/index.php?stat=ref");
+  exit();
+}
 
 // Create the Razorpay Order
 if (isset($_POST['submit']))

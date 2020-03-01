@@ -40,7 +40,12 @@ elseif (strpos($url, "stat=reg") !== false) {
   echo '<script>
   alert("Registered sucessfully");
 </script>';
-}else{
+}elseif (strpos($url, "stat=ref") !== false) {
+  echo '<script>
+  alert("Payment time Out");
+</script>';
+}
+else{
 
  
 }

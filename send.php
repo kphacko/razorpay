@@ -12,7 +12,7 @@ $row= mysqli_fetch_array($result);
 $timestamp = time();
 // actual value: $time = 1582820727
 $signature = md5( $timestamp . '6e578fd37e' ); 
-$url='https://elgaar.com/reg/ID/id.php?id='.$id;
+$url='https://elgaar.com/reg/ID/index.php?id='.$id;
 $url = urlencode($url);
 $api_url = 'http://techmylife.in/yourls-api.php?action=shorturl&username=karan&password=karan@7&format=json&url='.$url;
 $arr_output = json_decode(file_get_contents($api_url), true);

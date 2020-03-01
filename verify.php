@@ -68,10 +68,16 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
                         //echo $url;
                        // header("Location:ID/id.php?id=".$id);
                        // exit();
+                        session_start();
+  session_unset();
+  session_destroy();
                         echo "<script>window.open('form/index.php?stat=reg','_self')</script>";
 }
 else
 {
+  session_start();
+  session_unset();
+  session_destroy();
     $html = "<p>Your payment failed</p>
              <p>{$error}</p>";
              $sql1="UPDATE `member` SET `status`= 2,`payment_id` = '".$error."' WHERE id=".$id;
