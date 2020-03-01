@@ -18,7 +18,7 @@ $api_url = 'http://techmylife.in/yourls-api.php?action=shorturl&username=karan&p
 $arr_output = json_decode(file_get_contents($api_url), true);
 $surl = $arr_output["shorturl"];
 // echo $surl;
-$message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].' & get your id here '.$surl.'');
+$message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we have verified your details and your ID is '.$row['kid'].'.  you can download it via the link below '.$surl.'');
                        $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
                        $ch = curl_init();
 
@@ -37,27 +37,19 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
 
 }elseif ($stat=='s') {  
                        $msg=$_POST['text'];
+                       
                        $sql="SELECT * From member";
                        $result= mysqli_query($conn,$sql);
                        $check1=mysqli_num_rows($result);
-                       $phone='';
-                       $phone1='';
-                       $y = 50;
-                       $cal = fmod($check1,$y);
-                       $cal1= $check1 / $y;
-                       $k=round($cal1,0,PHP_ROUND_HALF_DOWN);
                        // echo $k."<br>"; 
                        while ($row= mysqli_fetch_array($result)) {
-                        if ($k==0) {
-                          while ($cal!=0) {
-
-                            $phone1=$row['phone'].','.$phone1;
-                            $cal--;
-                          }
-
-                          $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].'');
-                       $url='http://texti.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$phone1.'&message='.$message.'';
+                          $nmsg=str_replace("&&",$row['fname'],$msg);
+                       $nmsg=str_replace("||",$row['lname'],$nmsg);
+                          $message=urlencode(''.$nmsg.'');
+                       $url='http://texti.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
                           // $url='192.168.0.106/test/test.php';
+                       echo $url.'<br>';
+                       echo "greater than 50 ";
                        $ch = curl_init();
 
                         // set URL and other appropriate options
@@ -69,38 +61,13 @@ $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining 
 
                         // close cURL resource, and free up system resources
                         curl_close($ch); 
-                        }
-                        while($k!=0) {
-                          $c=0;
-                          while ($c<$y) {
-                            $phone=$phone.','.$row['phone'];
-                            $c++;
-                          }
-                          
-
-                          $message=urlencode('Thank you! '.$row['fname'].' '.$row['lname'].', for joining Elgaar. Your registration ID is '.$row['kid'].'');
-                       $url='http://texti.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$phone.'&message='.$message.'';
-                          // $url='http://192.168.0.106/test/test.php';
-                       $ch = curl_init();
-
-                        // set URL and other appropriate options
-                        curl_setopt($ch, CURLOPT_URL, $url);
-                        curl_setopt($ch, CURLOPT_HEADER, 0);
-
-                        // grab URL and pass it to the browser
-                        curl_exec($ch);
-
-                        // close cURL resource, and free up system resources
-                        curl_close($ch);  
-                        $c=0;
-                        $k--;
-                           
-                         }//end of while 
+                    
+                    
                          
                         }//end of main while
                        
-                         header("Location:admin.php?stat=s");
-                        exit();
+                        //  header("Location:admin.php?stat=s");
+                        // exit();
 
                       }//end of elseif
                
