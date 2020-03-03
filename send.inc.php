@@ -1,5 +1,11 @@
 <?php
 include 'header.php';
+$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+if (strpos($url, "stat=s") !== false) {
+  echo '<script>
+  alert("Messages send successfully");
+</script>';
+}
 
 ?>
 <div class="container">

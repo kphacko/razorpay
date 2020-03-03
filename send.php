@@ -1,4 +1,6 @@
 <?php
+// error_reporting(0);
+// ini_set('display_errors', 0);
 include_once 'connect.php';
 include_once 'header.php';
 
@@ -9,12 +11,53 @@ if($stat=='v'){
 $sql="SELECT * From member where id=".$id;
 $result= mysqli_query($conn,$sql);
 $row= mysqli_fetch_array($result);
+$n=3; 
+function getName($n) { 
+  $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz'; 
+  $randomString = ''; 
+
+  for ($i = 0; $i < $n; $i++) { 
+    $index = rand(0, strlen($characters) - 1); 
+    $randomString .= $characters[$index]; 
+  }
+  $randomString='el'.$randomString; 
+
+  return $randomString; 
+} 
+
+$ran= getName($n);
+// echo $ran.'<br>';
+// $ran='google';
+function urlcheck($ran){
+$url='www.google.com';
+
+$api_url = 'http://dx7.in/yourls-api.php?shorturl='.$ran.'&action=url-stats&username=daxy&password=Karan@7&format=json&url='.$url;
+$arr_output = json_decode(file_get_contents($api_url), true);
+$surl = $arr_output;
+if (is_null($arr_output)) {
+  return true;
+}else{
+
+  return false;
+
+}
+}
+while(true){
+  if (urlcheck($ran)) {
+    echo 'true';
+    break;
+  }
+}
+
+// echo $ran;
+// print_r($api_url);
+//__________________________________****************************_____________________________  
+//create shorturl
 $timestamp = time();
-// actual value: $time = 1582820727
 $signature = md5( $timestamp . '6e578fd37e' ); 
 $url='https://elgaar.com/reg/ID/index.php?id='.$id;
 $url = urlencode($url);
-$api_url = 'http://techmylife.in/yourls-api.php?action=shorturl&username=karan&password=karan@7&format=json&url='.$url;
+$api_url = 'http://dx7.in/yourls-api.php?keyword='.$ran.'&action=shorturl&username=daxy&password=Karan@7&format=json&url='.$url;
 $arr_output = json_decode(file_get_contents($api_url), true);
 $surl = $arr_output["shorturl"];
 // echo $surl;
@@ -46,10 +89,10 @@ $message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we hav
                           $nmsg=str_replace("&&",$row['fname'],$msg);
                        $nmsg=str_replace("||",$row['lname'],$nmsg);
                           $message=urlencode(''.$nmsg.'');
-                       $url='http://texti.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
+                       $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
                           // $url='192.168.0.106/test/test.php';
-                       echo $url.'<br>';
-                       echo "greater than 50 ";
+                       // echo $url.'<br>';
+                       // echo "greater than 50 ";
                        $ch = curl_init();
 
                         // set URL and other appropriate options
@@ -66,8 +109,8 @@ $message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we hav
                          
                         }//end of main while
                        
-                        //  header("Location:admin.php?stat=s");
-                        // exit();
+                         header("Location:send.inc.php?stat=s");
+                        exit();
 
                       }//end of elseif
                
