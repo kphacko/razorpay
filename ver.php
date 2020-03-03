@@ -5,7 +5,9 @@ $id=$_GET['id'];
 $sql3="UPDATE `member` SET status=3 WHERE id=".$id;
  mysqli_query($conn, $sql3) or die(mysqli_error($conn));
 
- header("Location:send.php?stat=v&id=".$id);
-        exit();
+ // header("Location:send.php?stat=v&id=".$id);
+ //        exit();
+ echo "<script>window.open('send.php?stat=v&id=".$id."','_self')</script>";
+
 
 ?>

@@ -2,7 +2,7 @@
 <?php
 error_reporting(0);
 ini_set('display_errors', 0);
-CookieHandler.setDefault( new CookieManager( null, CookiePolicy.ACCEPT_ALL ) );
+// CookieHandler.setDefault( new CookieManager( null, CookiePolicy.ACCEPT_ALL ) );
 require('config.php');
 require('razorpay-php/Razorpay.php');
 include_once('connect.php');
@@ -16,8 +16,11 @@ if (is_null($_SESSION['user'])) {
     $id = $conn->insert_id;
     $sql="DELETE FROM `member` WHERE STATUS=0 AND id=".$id;
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
-header("Location: form/index.php?stat=ref");
-  exit();
+// header("Location: form/index.php?stat=ref");
+//   exit();
+
+ echo "<script>window.open('form/index.php?stat=ref','_self')</script>";
+
 }
 
 // Create the Razorpay Order
@@ -124,13 +127,16 @@ $profileimage = $_FILES['file-input']['name'];
         // end
       }
       else {
-        header("Location:form/index.php?stat=fm");
-        exit();
+        // header("Location:form/index.php?stat=fm");
+        // exit();
+
+ echo "<script>window.open('form/index.php?stat=fm','_self')</script>";
 
       }
       if($response["status"]!='suc'){
-        header("Location:form/index.php?stat=".$response["status"]);
-        exit();
+        // header("Location:form/index.php?stat=".$response["status"]);
+        // exit();
+ echo "<script>window.open('form/index.php?stat=".$response['status']."','_self')</script>";
 
       }
      

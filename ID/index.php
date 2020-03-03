@@ -5,8 +5,10 @@ $id=$_POST['id'];
 }elseif ($_GET['id']!=NULL) {
 $id=$_GET['id'];    
 }else{
-    header("Location:../form/index.php?stat=id");
-                       exit();
+    // header("Location:../form/index.php?stat=id");
+    //                    exit();
+ echo "<script>window.open('../form/index.php?stat=id','_self')</script>";
+
 }
 
 $sql3="SELECT * from member where id=".$id;

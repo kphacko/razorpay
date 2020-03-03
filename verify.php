@@ -82,8 +82,9 @@ else
              <p>{$error}</p>";
              $sql1="UPDATE `member` SET `status`= 2,`payment_id` = '".$error."' WHERE id=".$id;
                        mysqli_query($conn, $sql1) or die(mysqli_error($conn));
-                       header("Location:form/index.php?stat=f");
-                       exit();
+                       // header("Location:form/index.php?stat=f");
+                       // exit();
+                       echo "<script>window.open('form/index.php?stat=f','_self')</script>";
 }
 
 

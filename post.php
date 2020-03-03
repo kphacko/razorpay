@@ -6,7 +6,9 @@ include 'connect.php';
 $sql3="UPDATE `member` SET post='$p' WHERE id=".$id;
  mysqli_query($conn, $sql3) or die(mysqli_error($conn));
 
- header("Location:admin.php?stat=c");
-        exit();
+ // header("Location:admin.php?stat=c");
+ //        exit();
+ echo "<script>window.open('admin.php?stat=c','_self')</script>";
+
 
 ?>

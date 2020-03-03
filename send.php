@@ -75,8 +75,10 @@ $message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we hav
                         // close cURL resource, and free up system resources
                         curl_close($ch);
                         // echo $url;
-                        header("Location:admin.php?stat=v");
-                        exit();
+                        // header("Location:admin.php?stat=v");
+                        // exit();
+ echo "<script>window.open('admin.php?stat=v','_self')</script>";
+
 
 }elseif ($stat=='s') {  
                        $msg=$_POST['text'];
@@ -109,8 +111,10 @@ $message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we hav
                          
                         }//end of main while
                        
-                         header("Location:send.inc.php?stat=s");
-                        exit();
+                        //  header("Location:send.inc.php?stat=s");
+                        // exit();
+ echo "<script>window.open('send.inc.php?stat=s','_self')</script>";
+
 
                       }//end of elseif
                

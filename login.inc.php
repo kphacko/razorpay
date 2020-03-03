@@ -6,12 +6,16 @@ if(isset($_POST['submit'])) {
     $pass=$_POST['pass'];  
 }else
 {
-	 header("Location: ../login.php?login=empty");
-      exit();
+	 // header("Location: ../login.php?login=empty");
+  //     exit();
+ echo "<script>window.open('login.php?login=empty','_self')</script>";
+
 }
     if(empty($email) || empty($pass)) {
-      header("Location: ../login.php?login=empty");
-      exit(); 
+      // header("Location: ../login.php?login=empty");
+      // exit();
+ echo "<script>window.open('login.php?login=empty','_self')</script>";
+
     }
 
     else{
@@ -24,12 +28,16 @@ if(isset($_POST['submit'])) {
             if($hashedPassCheck == true) {
                 $_SESSION['privilege'] = "admin";
                 $_SESSION['id'] = $row['id'];
-                header("Location: admin.php");
-                exit();
+                // header("Location: admin.php");
+                // exit();
+ echo "<script>window.open('admin.php','_self')</script>";
+
 
                 }else{
-                    header("Location: ../login.php?login=error");
-                    exit();
+                    // header("Location: ../login.php?login=error");
+                    // exit();
+ echo "<script>window.open('login.php?login=error','_self')</script>";
+
                 }
     
 
