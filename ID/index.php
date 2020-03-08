@@ -220,7 +220,7 @@ $row3= mysqli_fetch_array($result3);
             <p id="aadhar"><span class='bold'>Aadhar : </span><?php echo $row3['aadhar'];?></p>
             <p id="mobile"><span class='bold'>Mobile : </span><?php echo $row3['phone'];?></p>
             <p id="issue"><span class='bold'>Issue Date : </span><?php echo $row3['date'];?></p>
-            <p id='validity'><span class='bold'>Validity : </span> 5 years</p>
+            <p id='validity'><span class='bold'>Validity : </span> 1 year</p>
             <div id='foot'>
                 <p>National Office : <span class='red'>6/15, Milind Nagar, Mhada Colony, J V Link Road, Powai,
                         Mumbai-400072.</span>
