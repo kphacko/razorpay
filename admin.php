@@ -42,7 +42,7 @@ if (strpos($url, "stat=c") !== false) {
                     <th class="th-sm"><h3><strong>state</strong></h3></th>
                     <th class="th-sm"><h3><strong>Aadhar N0</strong></h3></th>
                     <th class="th-sm"><h3><strong>Status</strong></h3></th>
-                    <th class="th-sm"><h3><strong>Current Post</strong></h3></th>
+                    <th class="th-sm"><h3><strong>Post</strong></h3></th>
 
                   </tr>
                   </thead>
@@ -70,16 +70,7 @@ if (strpos($url, "stat=c") !== false) {
                                 }
 
                                  
-                                echo '<td><form action="post.php?id='.$row['id'].'" method="POST"><div class="form-group">
-    <label for="exampleFormControlSelect1">'.$row['post'].'</label>
-   <select name="post" id="state">
-                                        <option selected>Change Post</option>
-                                        <option value="Kamgar">Kamgar</option>
-                                        <option value="Karykarta">Karykarta</option>
-                                    </select>
-                                    <button style="margin-top: 10px; margin-bottom:0px;" name="submit" type="submit" class="btn btn-primary">Change</button>
-  </div>
-  </form></td>';
+                                echo '<td>'.$row['post'].'</td>';
 
                                 echo '</tr>';
                                 $c++;

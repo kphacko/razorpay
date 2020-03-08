@@ -44,7 +44,11 @@ elseif (strpos($url, "stat=reg") !== false) {
   echo '<script>
   alert("Payment time Out");
 </script>';
-}
+}elseif (strpos($url, "stat=pho") !== false) {
+    echo '<script>
+    alert("Phone Number is already exist!");
+  </script>';
+  }
 else{
 
  
@@ -53,8 +57,8 @@ else{
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
+<head><meta charset="windows-1252">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration - ELGAAR</title>
@@ -111,12 +115,12 @@ else{
                         <div class="form-radio">
                             <label for="gender" class="radio-label">Gender :</label>
                             <div class="form-radio-item">
-                                <input type="radio" name="gender" id="male" checked>
+                                <input type="radio" name="gender" id="male" value="male" checked>
                                 <label for="male">Male</label>
                                 <span class="check"></span>
                             </div>
                             <div class="form-radio-item">
-                                <input type="radio" name="gender" id="female">
+                                <input type="radio" name="gender" id="female" value="female"> 
                                 <label for="female">Female</label>
                                 <span class="check"></span>
                             </div>
@@ -180,14 +184,29 @@ else{
                             <label for="tow">Type of work :</label>
                             <input type="text" name="tow" id="aadhar" required/>
                         </div>
+                        
+                        <div class="form-radio">
+                            <label for="post" class="radio-label">Post :</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="post" id="member" value="member" checked>
+                                <label for="member">Member</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="post" id="unionworker" value="worker">
+                                <label for="unionworker">Union Worker</label>
+                                <span class="check"></span>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="photo">Your Photo :</label>
                             <p style='text-transform: uppercase; font-family: Montserrat;'>Note : Image size should be less then 250 KB</p>
+                            <p style='text-transform: uppercase; font-family: Montserrat;'>Image Dimensions Should be within 420 PX * 530 PX</p>
                             <input type="file" name="file-input" id="photo" required/>
                         </div>
 
-                        <p style="font-family: Montserrat">By submitting the form below, I certify that I have read,
+                        <p style="font-family: Montserrat" for="accept">By submitting the form, I certify that I have read,
                             understand, and adhere to all
                             applicable guidelines and agreements as stated.</p>
                        
@@ -202,7 +221,7 @@ else{
                     <p style="font-family: Montserrat; bottom: 0; font-weight: 500; text-align: center;">
                         with full energy, <a style="text-decoration: none;color: blue;" href="//daxy.in"
                             target="_blank">Team
-                            Daxy 🚕</a></p>
+                            Daxy ðŸš•</a></p>
                 </div>
             </div>
         </div>
@@ -214,6 +233,8 @@ else{
 <!-- form validation  -->
 <script>
 function validateForm() {
+    document.getElementById("myRadio").required = true;
+    document.getElementById("myRadio").required = true;
   var x = document.forms["myForm"]["phone"].value;
    var phoneno = /^\d{10}$/;
   if((inputtxt.value.match(phoneno))

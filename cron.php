@@ -14,9 +14,8 @@ while ($row= mysqli_fetch_array($result)) {
                         }
                     }
 $d=date("d/m/y");
-echo $count.'<br>';
-echo $c;
-
+// echo $count.'<br>';
+if($c>0){
 // echo $surl;
 $message=urlencode('Date '.$d.'\n'.$c.' New Registration\n'.$count.' Pending Verification ');
                        $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number=9322244007&message='.$message.'';
@@ -31,4 +30,17 @@ $message=urlencode('Date '.$d.'\n'.$c.' New Registration\n'.$count.' Pending Ver
 
                         // close cURL resource, and free up system resources
                         curl_close($ch);
+}
+$sql="SELECT * From member where status=3";
+$result= mysqli_query($conn,$sql);
+$nd=date("d-m-Y");
+while ($row= mysqli_fetch_array($result)) {
+    $futureDate=date('d-m-Y', strtotime('+1 year', strtotime($row['date'])) );
+    if ($futureDate>=$nd) {
+        $sql3="UPDATE `member` SET status=0 WHERE id=".$row['id'];
+ mysqli_query($conn, $sql3) or die(mysqli_error($conn));
+ echo $row['id'];
+    }
+
+}
 ?>

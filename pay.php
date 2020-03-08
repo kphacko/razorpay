@@ -6,22 +6,11 @@ ini_set('display_errors', 0);
 require('config.php');
 require('razorpay-php/Razorpay.php');
 include_once('connect.php');
-
+use Razorpay\Api\Api;
 session_start();
 if (is_null($_SESSION['user'])) {
     $_SESSION['user']='created';
-}else{
-    session_unset();
-  session_destroy();
-    $id = $conn->insert_id;
-    $sql="DELETE FROM `member` WHERE STATUS=0 AND id=".$id;
-    mysqli_query($conn, $sql) or die(mysqli_error($conn));
-// header("Location: form/index.php?stat=ref");
-//   exit();
 
- echo "<script>window.open('form/index.php?stat=ref','_self')</script>";
-
-}
 
 // Create the Razorpay Order
 if (isset($_POST['submit']))
@@ -35,14 +24,27 @@ if (isset($_POST['submit']))
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $pincode = mysqli_real_escape_string($conn, $_POST['pincode']);
         $tow = mysqli_real_escape_string($conn, $_POST['tow']);
-        
-        if ($_POST['gender']==='on') {
 
-           $gen = "male";
-        }
-        else{
-          $gen = "female";
-        }
+$sql="SELECT * from member where phone=".$phone;
+$result= mysqli_query($conn,$sql);
+$check1=mysqli_num_rows($result);
+
+        // if ($_POST['gender']==='on') {
+
+        //    $gen = "male";
+        // }
+        // else{
+        //   $gen = "female";
+        // }
+        $gen=$_POST['gender'];
+        // if ($_POST['post']==='on') {
+
+        //     $post = "member";
+        //  }
+        //  else{
+        //    $post = "worker";
+        //  }
+          $post=$_POST['post'];
         // $marital = mysqli_real_escape_string($conn, $_POST['']);
         $aadhar = mysqli_real_escape_string($conn, $_POST['aadhar']);
         // $blood = mysqli_real_escape_string($conn, $_POST['']);
@@ -97,7 +99,7 @@ if (isset($_POST['submit']))
       else if ($width > "420" || $height > "530") {
          $response = array(
              "type" => "error",
-             "message" => "Image dimension should be within 300X200",
+             "message" => "Image dimension should be within 420 X 530",
              "status"=> "dim"
          );
      }
@@ -139,6 +141,12 @@ $profileimage = $_FILES['file-input']['name'];
  echo "<script>window.open('form/index.php?stat=".$response['status']."','_self')</script>";
 
       }
+      if($check1>0){
+        // header("Location:form/index.php?stat=".$response["status"]);
+        // exit();
+ echo "<script>window.open('form/index.php?stat=pho','_self')</script>";
+
+      }
      
       // $sql="DELETE FROM `member` WHERE STATUS=0";
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -146,13 +154,13 @@ $profileimage = $_FILES['file-input']['name'];
       //           mysqli_query($conn, $sql1) or die(mysqli_error($conn));
       //           $id = $conn->insert_id;
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
-      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,`profile`,`tow`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$profileimage','$tow');";
+      $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,`profile`,`tow`,`post`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$profileimage','$tow','$post');";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                 $id = $conn->insert_id;
                 // echo $id;
 
 
-use Razorpay\Api\Api;
+
 
 $api = new Api($keyId, $keySecret);
 
@@ -234,5 +242,16 @@ $sql2="UPDATE `member` SET payment_id='$razorpayOrderId' WHERE id=".$id;
  $sql3="UPDATE `member` SET kid='$nid' WHERE id=".$id;
  mysqli_query($conn, $sql3) or die(mysqli_error($conn));
  // echo $sql2;
+}else{
+    session_unset();
+  session_destroy();    
+    $sql="DELETE FROM `member` WHERE STATUS=0 ORDER BY id DESC LIMIT 1";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+// header("Location: form/index.php?stat=ref");
+//   exit();
+
+ echo "<script>window.open('form/index.php?stat=ref','_self')</script>";
+// echo $id;
+}
 
 require("checkout/{$checkout}.php");
