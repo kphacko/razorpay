@@ -194,7 +194,7 @@ else{
                             </div>
                             <div class="form-radio-item">
                                 <input type="radio" name="post" id="unionworker" value="worker">
-                                <label for="unionworker">Union Worker</label>
+                                <label for="unionworker">Worker</label>
                                 <span class="check"></span>
                             </div>
                         </div>

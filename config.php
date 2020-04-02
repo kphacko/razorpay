@@ -1,8 +1,12 @@
 <?php
-
-$keyId = 'rzp_test_dMPYNsPVZ07oa3';
-$keySecret = 'kT7zm6XBXebZQlcIDNcizIzy';
+include_once('connect.php');
+$sqlm="SELECT * from admin";
+$resultm= mysqli_query($conn,$sqlm);
+$rowm= mysqli_fetch_array($resultm);
+$keyId = $row['key_id'];
+$keySecret = $row['key_secret'];
 $displayCurrency = 'INR';
+
 
 //These should be commented out in production
 // This is for error reporting

@@ -2,10 +2,10 @@
 session_start();
 if(!strcmp("admin",$_SESSION['privilege'])==0)
 {
-  // header("Location:index.php");
-  // exit();
+  
  echo "<script>window.open('index.php','_self')</script>";
-
+header("Location:index.php");
+  exit();
 }
 ?>
  <?php 
