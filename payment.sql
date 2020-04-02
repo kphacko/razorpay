@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2020 at 08:00 AM
+-- Generation Time: Apr 02, 2020 at 03:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -32,15 +32,17 @@ CREATE TABLE `admin` (
   `email` varchar(256) NOT NULL,
   `pass` varchar(256) NOT NULL,
   `id` int(11) NOT NULL,
-  `name` varchar(256) NOT NULL
+  `name` varchar(256) NOT NULL,
+  `key_id` varchar(256) NOT NULL,
+  `key_secret` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`email`, `pass`, `id`, `name`) VALUES
-('admin@elgaar.com', '$2y$10$OZq4T9gkWPpyzPvNSWE6u.iKM7IMFG7CmJuBWcT4YUqaOihBD4oN.', 1, 'admin');
+INSERT INTO `admin` (`email`, `pass`, `id`, `name`, `key_id`, `key_secret`) VALUES
+('admin@elgaar.com', '$2y$10$OZq4T9gkWPpyzPvNSWE6u.iKM7IMFG7CmJuBWcT4YUqaOihBD4oN.', 1, 'admin', 'rzp_live_VTtadhpMkvdyGi', 'T2cpOXybkh1u6TrCnmj46rKg');
 
 -- --------------------------------------------------------
 
@@ -82,7 +84,7 @@ INSERT INTO `member` (`id`, `kid`, `fname`, `mname`, `lname`, `dob`, `Gender`, `
 (101, '0000101', 'Signe', 'Violet Rosario', 'Mccullough', '2000-11-11', 'male', '8169157715', 'gucucofok@mailinator.net', 'Dolore amet adipisi', 76, '836184619469', ' Dabwali ', 'Haryana', 'Passportsizephoto.jpg', 'Kamgar', 'Error est nemo volup', 0, 'pay_ENmyj2Ga1KLrfL', '27 june, 2019'),
 (102, '0000102', 'Karan', 'Sas', 'Par', '2020-03-11', 'male', '8169157715', 'karan2000patil@gmail.com', '4/4,sohrab chawl,N.M. joshi marg, mumbai 400011', 40011, '166349253914', ' Barpeta Road ', 'Assam', '', 'Kamgar', 'hshhsh', 0, 'order_ENnF6KphmfrTQL', '27 june, 2019'),
 (103, '0000103', 'Bree', 'Alfonso Conrad', 'Rios', '2011-04-10', 'male', '8169157715', 'kylynyrise@mailinator.com', 'Perferendis commodi ', 34, '273547153247', ' Hindoli ', 'Rajasthan', 'Passportsizephoto.jpg', 'Kamgar', 'Do nihil exercitatio', 0, 'pay_ENnFp5z2lNN7wn', '27 june, 2019'),
-(128, '0000128', 'Callum', 'Briar Moon', 'Rowland', '1976-06-25', 'male', '8169157715', 'viliverifi@mailinator.com', 'Optio aut odit ulla', 54, '293749734239', ' Gangtok ', 'Sikkim', 'Passportsizephoto.jpg', 'member', 'Blanditiis dolor ea ', 0, 'order_EPiyNgpKVV3TRf', NULL);
+(131, NULL, 'Hector', 'Serena Chapman', 'Rivera', '1994-06-19', 'male', '8237482374', 'pexebyjoc@mailinator.net', 'Dignissimos ullamco ', 56, '283484347293', ' Belonia ', 'Tripura', 'Passportsizephoto.jpg', 'member', 'Et culpa do modi do', 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -114,7 +116,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
