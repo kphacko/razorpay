@@ -1,10 +1,11 @@
 <?php
+
 include_once('connect.php');
-$sqlm="SELECT * from admin";
+$sqlm="SELECT * from admin where id=1";
 $resultm= mysqli_query($conn,$sqlm);
 $rowm= mysqli_fetch_array($resultm);
-$keyId = $row['key_id'];
-$keySecret = $row['key_secret'];
+$keyId = $rowm['key_id'];
+$keySecret = $rowm['key_secret'];
 $displayCurrency = 'INR';
 
 

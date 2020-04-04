@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2020 at 03:09 PM
+-- Generation Time: Feb 14, 2020 at 04:37 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,76 +25,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `email` varchar(256) NOT NULL,
-  `pass` varchar(256) NOT NULL,
-  `id` int(11) NOT NULL,
-  `name` varchar(256) NOT NULL,
-  `key_id` varchar(256) NOT NULL,
-  `key_secret` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`email`, `pass`, `id`, `name`, `key_id`, `key_secret`) VALUES
-('admin@elgaar.com', '$2y$10$OZq4T9gkWPpyzPvNSWE6u.iKM7IMFG7CmJuBWcT4YUqaOihBD4oN.', 1, 'admin', 'rzp_live_VTtadhpMkvdyGi', 'T2cpOXybkh1u6TrCnmj46rKg');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `member`
 --
 
 CREATE TABLE `member` (
-  `id` int(11) NOT NULL,
-  `kid` varchar(256) DEFAULT NULL,
-  `fname` varchar(256) NOT NULL,
-  `mname` varchar(256) NOT NULL,
-  `lname` varchar(256) NOT NULL,
-  `dob` varchar(256) NOT NULL,
-  `Gender` varchar(256) NOT NULL,
-  `phone` varchar(15) NOT NULL,
+  `name` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
+  `id` int(11) NOT NULL,
   `address` varchar(256) NOT NULL,
+  `phone` varchar(15) NOT NULL,
   `pincode` int(50) NOT NULL,
-  `aadhar` varchar(256) NOT NULL,
-  `district` varchar(256) NOT NULL,
-  `state` varchar(256) NOT NULL,
-  `profile` varchar(256) NOT NULL,
-  `post` varchar(256) NOT NULL,
-  `tow` varchar(256) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `payment_id` varchar(256) DEFAULT NULL,
-  `date` varchar(256) DEFAULT NULL
+  `payment_id` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`id`, `kid`, `fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `profile`, `post`, `tow`, `status`, `payment_id`, `date`) VALUES
-(60, '0000030', 'yash', 'Simone Rios', 'karaday', '1972-01-10', 'male', '9322244007', 'gagimoly@mailinator.net', 'Qui velit dolores r', 92, '123456789122', ' Siruguppa ', 'Karnataka', 'small.jpg', 'Kamgar', 'Non incididunt sit e', 3, 'order_EJjuTUbU2YE3y3', NULL),
-(91, '0000091', 'karan', 'Marny Walters', 'patil', '1976-10-15', 'male', '8169157715', 'zovytutovi@mailinator.com', 'Unde dolor doloremqu', 90, '283682636283', ' Calicut ', 'Andaman & Nicobar', 'Passportsizephoto.jpg', 'Kamgar', 'Ea reprehenderit au', 0, 'pay_ELqupOqtACHw6P', '27 june, 2019'),
-(100, '0000100', 'Yoko', 'Natalie Yang', 'Cross', '1974-02-15', 'male', '8169157715', '', 'Et vel voluptatem sa', 56, '283487234797', ' Mahore ', 'Jammu & Kashmir', 'Passportsizephoto.jpg', 'Kamgar', 'Aliquid occaecat non', 0, 'order_ENiw8jmPHMzLaQ', '27 june, 2019'),
-(101, '0000101', 'Signe', 'Violet Rosario', 'Mccullough', '2000-11-11', 'male', '8169157715', 'gucucofok@mailinator.net', 'Dolore amet adipisi', 76, '836184619469', ' Dabwali ', 'Haryana', 'Passportsizephoto.jpg', 'Kamgar', 'Error est nemo volup', 0, 'pay_ENmyj2Ga1KLrfL', '27 june, 2019'),
-(102, '0000102', 'Karan', 'Sas', 'Par', '2020-03-11', 'male', '8169157715', 'karan2000patil@gmail.com', '4/4,sohrab chawl,N.M. joshi marg, mumbai 400011', 40011, '166349253914', ' Barpeta Road ', 'Assam', '', 'Kamgar', 'hshhsh', 0, 'order_ENnF6KphmfrTQL', '27 june, 2019'),
-(103, '0000103', 'Bree', 'Alfonso Conrad', 'Rios', '2011-04-10', 'male', '8169157715', 'kylynyrise@mailinator.com', 'Perferendis commodi ', 34, '273547153247', ' Hindoli ', 'Rajasthan', 'Passportsizephoto.jpg', 'Kamgar', 'Do nihil exercitatio', 0, 'pay_ENnFp5z2lNN7wn', '27 june, 2019'),
-(131, NULL, 'Hector', 'Serena Chapman', 'Rivera', '1994-06-19', 'male', '8237482374', 'pexebyjoc@mailinator.net', 'Dignissimos ullamco ', 56, '283484347293', ' Belonia ', 'Tripura', 'Passportsizephoto.jpg', 'member', 'Et culpa do modi do', 0, NULL, NULL);
+INSERT INTO `member` (`name`, `email`, `id`, `address`, `phone`, `pincode`, `status`, `payment_id`) VALUES
+('karan patil', 'karan2000patil@gmail.com', 1, 'n m joshi marg', '8228288888', 400011, 0, NULL),
+('karan patil', 'karan2000patil@gmail.com', 2, 'n m joshi marg', '8228288888', 400011, 0, NULL),
+('karan patil 2', 'karan2000patil@gmail.com', 3, 'n m joshi marg', '8228288888', 400011, 0, NULL),
+('karan patil 2', 'karan2000patil@gmail.com', 4, 'asff', '21231', 232, 0, NULL),
+('yash karade', 'ysah@jdsj.in', 5, 'aedwewe', '1234567890', 400011, 0, NULL),
+('test 2', 'karan2000patil@gmail.com', 6, 'asf', '8112134567', 400011, 0, NULL),
+('kp ', 'karan2000patil@gmail.com', 7, 'asff', '1212213456', 3333, 0, NULL),
+('ff', 'karan2000patil@gmail.com', 8, 'asee', '2345679089', 222, 1, 'pay_EGfeWjahkPNOWS'),
+('karan patil', 'karan2000patil@gmail.com', 9, 'aeffef', '1233567890', 233422, 1, 'pay_EGfptg181HEUNh'),
+('payment failed test', 'karan2000patil@gmail.com', 10, 'aedwedw', '1234567809', 234242, 0, NULL);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `member`
@@ -107,16 +70,10 @@ ALTER TABLE `member`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

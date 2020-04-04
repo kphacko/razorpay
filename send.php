@@ -2,7 +2,7 @@
 // error_reporting(0);
 // ini_set('display_errors', 0);
 include_once 'connect.php';
-include_once 'header.php';
+// include_once 'header.php';
 
 $stat=$_GET['stat'];
 
@@ -77,7 +77,8 @@ $message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we hav
                         // echo $url;
                         // header("Location:admin.php?stat=v");
                         // exit();
- echo "<script>window.open('admin.php?stat=v','_self')</script>";
+//  echo "<script>window.open('admin.php?stat=v','_self')</script>";
+ echo "<script>window.open('form/index.php?stat=reg','_self')</script>";
 
 
 }elseif ($stat=='s') {  
@@ -117,7 +118,9 @@ $message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we hav
 
 
                       }//end of elseif
-               
+               else{
+                    echo "<script>window.open('form/index.php','_self')</script>";
+               }
                // echo $cal1;       
 // echo 'less than 50 "<br>" ';
 //  // echo $phone1;

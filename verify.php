@@ -71,7 +71,8 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
                         session_start();
   session_unset();
   session_destroy();
-                        echo "<script>window.open('form/index.php?stat=reg','_self')</script>";
+  echo "<script>window.open('ver.php?stat=v&id=".$id."','_self')</script>";
+                        // echo "<script>window.open('form/index.php?stat=reg','_self')</script>";
 }
 else
 {
