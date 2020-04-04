@@ -48,12 +48,57 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
              <p>Payment ID: {$_POST['razorpay_payment_id']}</p>";
              $sql1="UPDATE `member` SET `status`= 1,`date`='".$date."',`payment_id` = '".$_POST['razorpay_payment_id']."' WHERE id=".$id;
                        mysqli_query($conn, $sql1) or die(mysqli_error($conn));
+
+
                        $sql="SELECT * From member WHERE id=".$id;
                        $result= mysqli_query($conn,$sql);
                        $row= mysqli_fetch_array($result);
-                       
-                       $message=urlencode('Payment successful! '.$row['fname'].' '.$row['lname'].' we have received your registration form. Our Team will contact you soon.');
-                       $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row['phone'].'&message='.$message.'';
+                        
+                        //copying the verified id to new table
+        $fname = $row['fname'];
+        $mname = $row['mname'];
+        $lname = $row['lname'];
+        $address =$row['address'];
+        $dob =  $row['dob'];
+        $phone =  $row['phone'];
+        $pincode =  $row['pincode'];
+        $tow =  $row['tow'];
+        $gen=$row['Gender'];
+        $post=$row['post'];
+        $aadhar =  $row['aadhar'];
+        $district =  $row['district'];
+        $state =  $row['state'];
+        $email =  $row['email'];
+        $status =  $row['status'];
+        $profileimage =  $row['profile'];
+        $payment_id =  $row['payment_id'];
+        $date =  $row['date'];
+
+ $sql1="INSERT INTO `verified`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,`profile`,`tow`,`post`,`payment_id`,`date`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state','$status','$profileimage','$tow','$post','$payment_id','$date');";
+                mysqli_query($conn, $sql1) or die(mysqli_error($conn));
+                $id = $conn->insert_id;
+
+$c='';
+                    $n=strlen($id);
+                    $c=7-$n;
+                    $b='';
+                    while ($c!=0) { 
+                        $b=$b.'0';
+                        $c--;
+                    }
+                    
+                    $nid=$b.$id;
+
+ $sql3="UPDATE `verified` SET kid='$nid' WHERE id=".$id;
+ mysqli_query($conn, $sql3) or die(mysqli_error($conn));
+
+$sql8="SELECT * From verified WHERE id=".$id;
+                       $result8= mysqli_query($conn,$sql8);
+                       $row8= mysqli_fetch_array($result8);
+
+
+                       $message=urlencode('Payment successful! '.$row8['fname'].' '.$row8['lname'].' we have received your registration form. Our Team will contact you soon.');
+                       $url='http://text.daxy.in/http-api.php?username=daxy&password=Karan@7&senderid=ELGAAR&route=2&number='.$row8['phone'].'&message='.$message.'';
                        $ch = curl_init();
 
                         // set URL and other appropriate options
@@ -72,7 +117,7 @@ $date="$mydate[mday] $mydate[month], $mydate[year]";
   session_unset();
   session_destroy();
   echo "<script>window.open('ver.php?stat=v&id=".$id."','_self')</script>";
-                        // echo "<script>window.open('form/index.php?stat=reg','_self')</script>";
+   // echo "<script>window.open('form/index.php?stat=reg','_self')</script>";
 }
 else
 {

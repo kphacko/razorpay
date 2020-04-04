@@ -8,7 +8,7 @@ $stat=$_GET['stat'];
 
 if($stat=='v'){
   $id=$_GET['id'];
-$sql="SELECT * From member where id=".$id;
+$sql="SELECT * From verified where id=".$id;
 $result= mysqli_query($conn,$sql);
 $row= mysqli_fetch_array($result);
 $n=3; 
@@ -84,7 +84,7 @@ $message=urlencode('Congratulations, '.$row['fname'].' '.$row['lname'].'! we hav
 }elseif ($stat=='s') {  
                        $msg=$_POST['text'];
                        
-                       $sql="SELECT * From member";
+                       $sql="SELECT * From verified";
                        $result= mysqli_query($conn,$sql);
                        $check1=mysqli_num_rows($result);
                        // echo $k."<br>"; 

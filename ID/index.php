@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     echo "<script>window.open('../form/index.php?stat=id','_self')</script>";
 }
 
-$sql3 = "SELECT * from member where id=" . $id;
+$sql3 = "SELECT * from verified where id=" . $id;
 $result3 = mysqli_query($conn, $sql3);
 $row3 = mysqli_fetch_array($result3);
 ?>
