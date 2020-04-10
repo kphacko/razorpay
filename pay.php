@@ -25,7 +25,7 @@ if (isset($_POST['submit']))
         $pincode = mysqli_real_escape_string($conn, $_POST['pincode']);
         $tow = mysqli_real_escape_string($conn, $_POST['tow']);
 
-$sql="SELECT * from member where phone=".$phone;
+$sql="SELECT * from verified where phone=".$phone;
 $result= mysqli_query($conn,$sql);
 $check1=mysqli_num_rows($result);
 
@@ -56,7 +56,9 @@ $check1=mysqli_num_rows($result);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         // $pro = mysqli_real_escape_string($conn, $_POST['photo']);
 
-
+$sql2="SELECT * from verified where aadhar=".$aadhar;
+$result2= mysqli_query($conn,$sql2);
+$check2=mysqli_num_rows($result2);
 
 
         // photograph validation
@@ -147,6 +149,12 @@ $profileimage = $_FILES['file-input']['name'];
  echo "<script>window.open('form/index.php?stat=pho','_self')</script>";
 
       }
+      if($check2>0){
+        // header("Location:form/index.php?stat=".$response["status"]);
+        // exit();
+ echo "<script>window.open('form/index.php?stat=aadhar','_self')</script>";
+
+      }
      
       // $sql="DELETE FROM `member` WHERE STATUS=0";
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -154,6 +162,12 @@ $profileimage = $_FILES['file-input']['name'];
       //           mysqli_query($conn, $sql1) or die(mysqli_error($conn));
       //           $id = $conn->insert_id;
       // mysqli_query($conn, $sql) or die(mysqli_error($conn));
+      
+      if($post=='Member'){
+        $tow=$post;          
+      }elseif($post=='Worker'){
+          $tow = mysqli_real_escape_string($conn, $_POST['tow']);
+      }
       $sql1="INSERT INTO `member`(`fname`, `mname`, `lname`, `dob`, `Gender`, `phone`, `email`, `address`, `pincode`, `aadhar`, `district`, `state`, `status`,`profile`,`tow`,`post`) VALUES ('$fname','$mname','$lname','$dob','$gen','$phone','$email','$address','$pincode','$aadhar','$district','$state',0,'$profileimage','$tow','$post');";
                 mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                 $id = $conn->insert_id;
@@ -255,3 +269,4 @@ $sql2="UPDATE `member` SET payment_id='$razorpayOrderId' WHERE id=".$id;
 }
 
 require("checkout/{$checkout}.php");
+

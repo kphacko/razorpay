@@ -41,6 +41,10 @@ if (strpos($url, "stat=f") !== false) {
     echo '<script>
     alert("Phone Number is already exist!");
   </script>';
+} elseif (strpos($url, "stat=aadhar") !== false) {
+    echo '<script>
+    alert("Aadhar Number is already exist!");
+  </script>';
 } else {
 }
 ?>
@@ -50,15 +54,41 @@ if (strpos($url, "stat=f") !== false) {
 <head>
     <meta charset="windows-1252">
 
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration - ELGAAR</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="https://daxy.in/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://daxy.in/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://daxy.in/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://daxy.in/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://daxy.in/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://daxy.in/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://daxy.in/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://daxy.in/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://daxy.in/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://daxy.in/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://daxy.in/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://daxy.in/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://daxy.in/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
     <script src="js/cities.js"></script>
 </head>
 
@@ -134,7 +164,8 @@ if (strpos($url, "stat=f") !== false) {
                             <div class="form-group">
                                 <label for="state">State :</label>
                                 <div class="form-select">
-                                    <select onchange="print_city('state', this.selectedIndex);" id="sts" name="state" class="form-control" required></select>
+                                    <select onchange="print_city('state', this.selectedIndex);" id="sts" name="state" class="form-control" required>
+                                    </select>
                                     <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
                                 </div>
                             </div>
@@ -168,25 +199,38 @@ if (strpos($url, "stat=f") !== false) {
 
                         <div class="form-group">
                             <label for="aadhar">Aadhar :</label>
-                            <input type="tel" pattern="[0-9]{12}" name="aadhar" id="aadhar" minlength='12' maxlength='12' required />
+                            <input type="tel" name="aadhar" id="aadhar" minlength='14' maxlength='14' required />
                         </div>
 
-                        <div class="form-group">
-                            <label for="tow">Type of work :</label>
-                            <input type="text" name="tow" id="aadhar" required />
-                        </div>
-
-                        <div class="form-radio">
+                        <div id="postr" class="form-radio">
                             <label for="post" class="radio-label">Post :</label>
                             <div class="form-radio-item">
-                                <input type="radio" name="post" id="member" value="member" checked>
+                                <input type="radio" name="post" id="member" value="Member" checked>
                                 <label for="member">Member</label>
                                 <span class="check"></span>
                             </div>
                             <div class="form-radio-item">
-                                <input type="radio" name="post" id="unionworker" value="worker">
+                                <input type="radio" name="post" id="unionworker" value="Worker">
                                 <label for="unionworker">Worker</label>
                                 <span class="check"></span>
+                            </div>
+                        </div>
+
+                        <div id="towcontainer" class="form-group hidden">
+                            <label for="tow">Type of work :</label>
+                            <div class="form-select">
+                                <select name="tow" class="form-control" required>
+                                    <option value="Gems and jewellery worker">Gems and jewellery worker</option>
+                                    <option value="Building and other construction (BOC)">Building and other construction (BOC) Worker</option>
+                                    <option value="Mathadi worker">Mathadi worker</option>
+                                    <option value="Agricultural Felid worker">Agricultural Felid worker</option>
+                                    <option value="Film industry worker">Film industry worker</option>
+                                    <option value="Transportation & Driverwworker">Transportation & Driver worker</option>
+                                    <option value="Industrial worker">Industrial worker</option>
+                                    <option value="Other">Other worker</option>
+
+                                </select>
+                                <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
                             </div>
                         </div>
 
@@ -211,7 +255,7 @@ if (strpos($url, "stat=f") !== false) {
                     </form>
                     <p style="font-family: Montserrat; bottom: 0; font-weight: 500; text-align: center;">
                         with full energy, <a style="text-decoration: none;color: blue;" href="//daxy.in" target="_blank">Team
-                            Daxy 🚕</a></p>
+                            Daxy ðŸš•</a></p>
                 </div>
             </div>
         </div>
@@ -222,17 +266,40 @@ if (strpos($url, "stat=f") !== false) {
     <script src="js/main.js"></script>
     <!-- form validation  -->
     <script>
+        towToggle();
+        aadharSpaces();
+
+        function towToggle() {
+            $('#postr input:radio').click(function() {
+                if ($(this).val() === 'Member') {
+                    document.querySelector('#towcontainer').classList.add('hidden');
+                } else if ($(this).val() === 'Worker') {
+                    document.querySelector('#towcontainer').classList.remove('hidden');
+                }
+            });
+        }
+
+
+        function aadharSpaces() {
+            document.getElementById('aadhar').addEventListener("keyup", function() {
+                txt = this.value;
+                if (txt.length == 4 || txt.length == 9)
+                    this.value = this.value + " ";
+            });
+        }
+
         function validateForm() {
             document.getElementById("myRadio").required = true;
             document.getElementById("myRadio").required = true;
             var x = document.forms["myForm"]["phone"].value;
             var phoneno = /^\d{10}$/;
-            if ((inputtxt.value.match(phoneno)) {
-                    // return true;
-                } else {
-                    alert("Enter valid number");
-                    return false;
-                }
+            if ((inputtxt.value.match(phoneno))) {
+                // return true;
+            } else {
+                alert("Enter valid number");
+                return false;
+            }
+        }
     </script>
 
 
